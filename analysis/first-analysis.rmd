@@ -10,5 +10,17 @@ editor_options:
 ## Introduction
 
 ```{r}
-
+library("workflowr")
+wflow_git_config(user.name = "name", user.email = "email@domain")
+#create a directory for the project
+wflow_start("GWAS_QC")
+#build a website
+wflow_build()
+#view the site on the local machine
+wflow_view()
+#create a GitHub repository
+wflow_use_github("name")
+#in the GitHub repository, set up GitHub Pages in Settings
+#to send the files to GitHub
+wflow_git_push()
 ```
