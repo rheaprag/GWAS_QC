@@ -12,4 +12,3 @@ editor_options:
 ```{r}
 
 ```
-
