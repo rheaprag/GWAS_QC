@@ -9,7 +9,7 @@ editor_options:
 
 ## Introduction
 
-##This step converts the downloaded hapmap data to bed/bim/fam to be used by plink
+This step converts the downloaded hapmap data to bed/bim/fam to be used by plink.
 
 ``` {plink}
 ./plink --file hapmap3 --make-bed --out hapmap3_out
