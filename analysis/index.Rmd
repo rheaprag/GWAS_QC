@@ -12,8 +12,10 @@ Welcome to my research website.
 
 Here I will be going through several steps to do quality control on a set of hapmap data. 
 
+
 These are my analysis files:
 
 Click on this [link](00-Converting_to_plink_format.html) to see how the data was converted to plink format.
+
 
 Thank You
