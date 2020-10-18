@@ -15,7 +15,9 @@ Here I will be going through several steps to do quality control on a set of hap
 
 These are my analysis files:
 
-Click on this [link](00-Converting_to_plink_format.html) to see how the data was converted to plink format.
+[00-Converting_to_plink_format](00-Converting_to_plink_format.html) 
+
+[01-MissingFiltering](01-MissingnessFiltering.html) 
 
 
 Thank You
