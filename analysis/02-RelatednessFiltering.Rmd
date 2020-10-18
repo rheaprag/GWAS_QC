@@ -1,0 +1,83 @@
+---
+title: "02-RelatednessFiltering"
+author: "rheaprag"
+date: "2020-10-18"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+Relatedness filtering removes the dublicate records and individuals that are highly related. There are several partts:
+
+## 1. Create a pruned list of SNP IDs
+
+```{plink}
+./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --indep-pairwise 50 5 0.3 --out hapmap3
+```
+This creates the following files:
+
+  hapmap3.hh
+  
+  hapmap3.log
+  
+  hapmap3.prune.in
+  
+  hammap3.prune.out
+
+## 2. Determine the IBD of samples
+```{plink}
+./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --extract hapmap3.prune.in --genome --out hapmap3_02_2
+```
+This creates the following files:
+
+  hapmap3_02_2.genome
+  
+  hapmap3_02_2.hh
+  
+  hapmap3_02_2.log
+
+## 3. Check the heterozygosity in the samples
+```{plink}
+./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --het --out hapmap3_02_3
+```
+This creates the following files:
+
+  hapmap3_02_3.het
+  
+  hapmap3_02_3.hh
+  
+  hapmap3_02_3.log
+
+## 4. LD prune SNPs from bfiles
+```{plink}
+./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --extract hapmap3.prune.in --make-bed --out hapmap3_02_4
+```
+This creates the following files:
+
+  hapmap3_02_4.bed
+  
+  hapmap3_02_4.bim
+  
+  hapmap3_02_4.fam
+  
+  hapmap3_02_4.hh
+  
+  hapmap3_02_4.log
+
+## 5. Remove dumplicate or related samples & regenerate heterozygosity estimates from the filtered samples
+```{plink}
+./plink --bfile hapmap3_02_4 -het --out hapmap3_02_5
+```
+This creates the following files:
+
+  hapmap3_02_5.het
+  
+  hapmap3_02_5.hh
+  
+  hapmap3_02_5.log
+
+
+
+
+
