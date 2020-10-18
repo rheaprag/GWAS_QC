@@ -15,21 +15,29 @@ In order to remove SNPs that are not genotyped properly, several substeps need t
 ```{plink}
 ./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --missing --out hapmap3
 ```
-This creates the following files-
-hapmap3.hh
-hapmap3.imiss
-hapmap3.lmiss
-hapmap3.log
+This creates the following files:
+
+  hapmap3.hh
+
+  hapmap3.imiss
+
+  hapmap3.lmiss
+
+  hapmap3.log
 
 ## 2. Create new bfiles based on the threshold
 ```{plink}
 ./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --geno 0.01 --maf 0.05 --make-bed --out hapmap3_2
 ```
-This creates the following files-
-hapmap3_2.bed
-hapmap3_2.bim
-hapmap3_2.fam
-hapmap3_2.hh
+This creates the following files:
+
+  hapmap3_2.bed
+
+  hapmap3_2.bim
+
+  hapmap3_2.fam
+
+  hapmap3_2.hh
 
 ## 3. Determine the new threshnold after filtering
 ```{plink}
@@ -54,18 +62,26 @@ hapmap3_4.log
 ```{plink}
 ./plink --bfile hapmap3_2 --hwe 0.0001 --make-bed --out hapmap3_5
 ```
-This creates the following files-
-hapmap3_5.bed
-hapmap3_5.bim
-hapmap3_5.fam
-hapmap3_5.hh
-hapmap3_5.log
+This creates the following files:
+
+  hapmap3_5.bed
+
+  hapmap3_5.bim
+
+  hapmap3_5.fam
+
+  hapmap3_5.hh
+
+  hapmap3_5.log
 
 ```{plink}
 ./plink --bfile hapmap3_5 --hardy --out hapmap3_final
 ```
-This creates the following files-
-hapmap3_final.hh
-hapmap3_final.hwe
-hapmap3_final.log
+This creates the following files:
+
+  hapmap3_final.hh
+  
+  hapmap3_final.hwe
+  
+  hapmap3_final.log
 
