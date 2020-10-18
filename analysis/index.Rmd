@@ -17,7 +17,7 @@ These are my analysis files:
 
 [00-Converting_to_plink_format](00-Converting_to_plink_format.html) 
 
-[01-MissingFiltering](01-MissingnessFiltering.html) 
+[01-MissingnessFiltering](01-MissingnessFiltering.html) 
 
 
 Thank You
