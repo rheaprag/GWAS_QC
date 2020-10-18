@@ -15,7 +15,7 @@ In order to remove SNPs that are not genotyped properly, several substeps need t
 ```{plink}
 ./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --missing --out hapmap3
 ```
-This creates the following files:
+This creates the following files-
 hapmap3.hh
 hapmap3.imiss
 hapmap3.lmiss
@@ -25,7 +25,7 @@ hapmap3.log
 ```{plink}
 ./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --geno 0.01 --maf 0.05 --make-bed --out hapmap3_2
 ```
-This creates the following files:
+This creates the following files-
 hapmap3_2.bed
 hapmap3_2.bim
 hapmap3_2.fam
@@ -35,7 +35,7 @@ hapmap3_2.hh
 ```{plink}
 ./plink --bfile hapmap3_2 --geno 0.01 --maf 0.05 --missing --out hapmap3_3
 ```
-This creates the following files:
+This creates the following files-
 hapmap3_3.hh
 hapmap3_3.imiss
 hapmap3_3.lmiss
@@ -45,7 +45,7 @@ hapmap3_3.log
 ```{plink}
 ./plink --bfile hapmap3_2 --hardy --out hapmap3_4
 ```
-This creates the following files:
+This creates the following files-
 hapmap3_4.hh
 hapmap3_4.hwe
 hapmap3_4.log
@@ -54,7 +54,7 @@ hapmap3_4.log
 ```{plink}
 ./plink --bfile hapmap3_2 --hwe 0.0001 --make-bed --out hapmap3_5
 ```
-This creates the following files:
+This creates the following files-
 hapmap3_5.bed
 hapmap3_5.bim
 hapmap3_5.fam
@@ -64,7 +64,7 @@ hapmap3_5.log
 ```{plink}
 ./plink --bfile hapmap3_5 --hardy --out hapmap3_final
 ```
-This creates the following files:
+This creates the following files-
 hapmap3_final.hh
 hapmap3_final.hwe
 hapmap3_final.log
