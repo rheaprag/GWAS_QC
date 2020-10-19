@@ -7,4 +7,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+This is a quality control pipeline for publicly available hapmap data available [here](ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/hapmap3/plink_format/draft_2). 
+
+This will be done using [workflowr](https://github.com/jdblischak/workflowr) to analyze and perform the various steps involved. 
