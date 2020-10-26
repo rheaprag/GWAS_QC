@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree491235fda05f813c4fb297af03754becfc9eb762targetblank491235fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/491235fda05f813c4fb297af03754becfc9eb762" target="_blank">491235f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree481815651927e3a87c0e63c1a4f188d627815ce2targetblank4818156a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/481815651927e3a87c0e63c1a4f188d627815ce2" target="_blank">4818156</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree491235fda05f813c4fb297af03754becfc9eb762targetblank491235fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree481815651927e3a87c0e63c1a4f188d627815ce2targetblank4818156a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/491235fda05f813c4fb297af03754becfc9eb762" target="_blank">491235f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/481815651927e3a87c0e63c1a4f188d627815ce2" target="_blank">4818156</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -625,6 +625,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/481815651927e3a87c0e63c1a4f188d627815ce2/analysis/02-RelatednessFiltering.Rmd" target="_blank">4818156</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-10-26
+</td>
+<td>
+Add IBD plot to analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/de0de3044387719cf123199f3f345682554c8a73/docs/02-RelatednessFiltering.html" target="_blank">de0de30</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-10-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/491235fda05f813c4fb297af03754becfc9eb762/analysis/02-RelatednessFiltering.Rmd" target="_blank">491235f</a>
 </td>
 <td>
@@ -699,16 +733,47 @@ Add 02 analysis
 <p>hapmap3_02_2.hh</p>
 <p>hapmap3_02_2.log</p>
 <p>In order to check the IBD:</p>
-<pre><code>install.packages(&quot;ggplot2&quot;)
-library(&quot;ggplot2&quot;)
+<pre><code>library(&quot;ggplot2&quot;)
 ibd &lt;- read.table(&quot;hapmap3_02_2.genome&quot;, header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
-<pre><code>Installing package into &#39;/Users/rhea/Library/R/4.0/library&#39;
-(as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/rf/8jdtr1zn62x1mq0xv4vmz07m0000gn/T//Rtmpt6ZgwJ/downloaded_packages</code></pre>
 <p><img src="figure/02-RelatednessFiltering.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
+Past versions of unnamed-chunk-1-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/de0de3044387719cf123199f3f345682554c8a73/docs/figure/02-RelatednessFiltering.Rmd/unnamed-chunk-1-1.png" target="_blank">de0de30</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-10-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="check-the-heterozygosity-in-the-samples" class="section level2">
 <h2>3. Check the heterozygosity in the samples</h2>
