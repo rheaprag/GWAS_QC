@@ -66,9 +66,19 @@ This creates the following files:
   hapmap3_4.log
 
 The original data that has not been edited in any way with the initial threshold:
+```{}
+lmiss <- read.table("hapmap3.lmiss", header = T)
+hist(lmiss$F_MISS)
+```
+
 ```{r, echo = FALSE}
 lmiss <- read.table("hapmap3.lmiss", header = T)
 hist(lmiss$F_MISS)
+```
+
+```{}
+imiss <- read.table("hapmap3.imiss", header = T)
+hist(imiss$F_MISS)
 ```
 
 ```{r, echo = FALSE}
@@ -77,9 +87,19 @@ hist(imiss$F_MISS)
 ```
 
 The data at this point after filtering with the new threshold:
+```{}
+newlmiss <- read.table("hapmap3_3.lmiss", header = T)
+hist(newlmiss$F_MISS)
+```
+
 ```{r, echo = FALSE}
 newlmiss <- read.table("hapmap3_3.lmiss", header = T)
 hist(newlmiss$F_MISS)
+```
+
+```{}
+newimiss <- read.table("hapmap3_3.imiss", header = T)
+hist(newimiss$F_MISS)
 ```
 
 ```{r, echo = FALSE}
