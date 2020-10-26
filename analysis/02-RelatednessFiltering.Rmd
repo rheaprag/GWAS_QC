@@ -12,7 +12,7 @@ Relatedness filtering removes the dublicate records and individuals that are hig
 
 ## 1. Create a pruned list of SNP IDs
 
-```{plink}
+```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --indep-pairwise 50 5 0.3 --out hapmap3
 ```
 This creates the following files:
@@ -26,7 +26,7 @@ This creates the following files:
   hammap3.prune.out
 
 ## 2. Determine the IBD of samples
-```{plink}
+```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --extract hapmap3.prune.in --genome --out hapmap3_02_2
 ```
 This creates the following files:
@@ -36,9 +36,24 @@ This creates the following files:
   hapmap3_02_2.hh
   
   hapmap3_02_2.log
+  
+In order to check the IBD:
+```{}
+install.packages("ggplot2")
+library("ggplot2")
+ibd <- read.table("hapmap3_02_2.genome", header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+```
+
+```{r, echo = FALSE}
+install.packages("ggplot2")
+library("ggplot2")
+ibd <- read.table("hapmap3_02_2.genome", header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+```
 
 ## 3. Check the heterozygosity in the samples
-```{plink}
+```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --het --out hapmap3_02_3
 ```
 This creates the following files:
@@ -50,7 +65,7 @@ This creates the following files:
   hapmap3_02_3.log
 
 ## 4. LD prune SNPs from bfiles
-```{plink}
+```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --extract hapmap3.prune.in --make-bed --out hapmap3_02_4
 ```
 This creates the following files:
@@ -66,7 +81,7 @@ This creates the following files:
   hapmap3_02_4.log
 
 ## 5. Remove dumplicate or related samples & regenerate heterozygosity estimates from the filtered samples
-```{plink}
+```{}
 ./plink --bfile hapmap3_02_4 -het --out hapmap3_02_5
 ```
 This creates the following files:
