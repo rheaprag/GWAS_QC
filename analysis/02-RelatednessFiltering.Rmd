@@ -39,14 +39,12 @@ This creates the following files:
   
 In order to check the IBD:
 ```{}
-install.packages("ggplot2")
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2.genome", header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ```{r, echo = FALSE}
-install.packages("ggplot2")
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2.genome", header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
