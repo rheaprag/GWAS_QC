@@ -43,20 +43,49 @@ This creates the following files:
 ```{plink}
 ./plink --bfile hapmap3_2 --geno 0.01 --maf 0.05 --missing --out hapmap3_3
 ```
-This creates the following files-
-hapmap3_3.hh
-hapmap3_3.imiss
-hapmap3_3.lmiss
-hapmap3_3.log
+This creates the following files:
+
+  hapmap3_3.hh
+
+  hapmap3_3.imiss
+
+  hapmap3_3.lmiss
+
+  hapmap3_3.log
 
 ## 4. Plot generation and validation of call rate distribution
 ```{plink}
 ./plink --bfile hapmap3_2 --hardy --out hapmap3_4
 ```
-This creates the following files-
-hapmap3_4.hh
-hapmap3_4.hwe
-hapmap3_4.log
+This creates the following files:
+
+  hapmap3_4.hh
+
+  hapmap3_4.hwe
+
+  hapmap3_4.log
+
+The original data that has not been edited in any way with the initial threshold:
+```{r, echo = FALSE}
+lmiss <- read.table("hapmap3.lmiss", header = T)
+hist(lmiss$F_MISS)
+```
+
+```{r, echo = FALSE}
+imiss <- read.table("hapmap3.imiss", header = T)
+hist(imiss$F_MISS)
+```
+
+The data at this point after filtering with the new threshold:
+```{r, echo = FALSE}
+newlmiss <- read.table("hapmap3_3.lmiss", header = T)
+hist(newlmiss$F_MISS)
+```
+
+```{r, echo = FALSE}
+newimiss <- read.table("hapmap3_3.imiss", header = T)
+hist(newimiss$F_MISS)
+```
 
 ## 5. Filter the Hardy-Weinburg Equilibrium threshold and then recalculate statistics
 ```{plink}
