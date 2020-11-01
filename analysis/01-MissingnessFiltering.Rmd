@@ -14,7 +14,7 @@ In order to remove SNPs that are not genotyped properly, several substeps need t
 ## Flag Index
 * `--bed`: specify the name/path of .bed file
 
-* ``--bfile`: specify the name/path of bed/bim/fam files
+* `--bfile`: specify the name/path of bed/bim/fam files
 
 * `--bim`: specify the name/path of .bim file
 
@@ -47,7 +47,7 @@ This creates the following files:
 
 * hapmap3.lmiss
 
-* hapmap3.log
+* hapmap3.log  
   
 The original data that has not been edited in any way with the initial threshold:
 ```{}
