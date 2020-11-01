@@ -11,6 +11,19 @@ editor_options:
 
 In order to remove SNPs that are not genotyped properly, several substeps need to be taken. 
 
+## Flag Index
+--bed: specify the name/path of .bed file
+--bfile: specify the name/path of bed/bim/fam files
+--bim: specify the name/path of .bim file
+--fam: specify the name/path of .fam file
+--geno: filter out the variants with a threshold of 0.01 (filter SNPs with a call rate of <99%)
+--hardy: writes a list of genotype counts and Hardy-Weinberg equilirbium test statistics to a .hwe file 
+--hwe: filter out variants with a threshold of 0.001
+--maf: filter out SNPs with a minor allele frequency <0.05
+--make-bed: generate bed/bim/fam fileset
+--missing: produces sample-based and variant-based missing data reports
+--out: specify the name of the output files
+
 ## 1. Determining the initial threshold
 ```{plink}
 ./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --missing --out hapmap3
@@ -24,6 +37,27 @@ This creates the following files:
   hapmap3.lmiss
 
   hapmap3.log
+  
+The original data that has not been edited in any way with the initial threshold:
+```{}
+lmiss <- read.table("hapmap3.lmiss", header = T)
+hist(lmiss$F_MISS)
+```
+
+```{r, echo = FALSE}
+lmiss <- read.table("hapmap3.lmiss", header = T)
+hist(lmiss$F_MISS)
+```
+
+```{}
+imiss <- read.table("hapmap3.imiss", header = T)
+hist(imiss$F_MISS)
+```
+
+```{r, echo = FALSE}
+imiss <- read.table("hapmap3.imiss", header = T)
+hist(imiss$F_MISS)
+```
 
 ## 2. Create new bfiles based on the threshold
 ```{plink}
@@ -65,26 +99,6 @@ This creates the following files:
 
   hapmap3_4.log
 
-The original data that has not been edited in any way with the initial threshold:
-```{}
-lmiss <- read.table("hapmap3.lmiss", header = T)
-hist(lmiss$F_MISS)
-```
-
-```{r, echo = FALSE}
-lmiss <- read.table("hapmap3.lmiss", header = T)
-hist(lmiss$F_MISS)
-```
-
-```{}
-imiss <- read.table("hapmap3.imiss", header = T)
-hist(imiss$F_MISS)
-```
-
-```{r, echo = FALSE}
-imiss <- read.table("hapmap3.imiss", header = T)
-hist(imiss$F_MISS)
-```
 
 The data at this point after filtering with the new threshold:
 ```{}
