@@ -8,7 +8,28 @@ editor_options:
 ---
 
 ## Introduction
-Relatedness filtering removes the dublicate records and individuals that are highly related. There are several partts:
+Relatedness filtering removes the dublicate records and individuals that are highly related. 
+
+## Flag Index
+* `--bed`: specify the name/path of .bed file
+
+* `--bfile`: specify the name/path of bed/bim/fam files
+
+* `--bim`: specify the name/path of .bim file
+
+* `--extract`: filter out variants that are not in the file provided
+
+* `--fam`: specify the name/path of .fam file
+
+* `--geno`: filter out the variants with a threshold of 0.01 (filter SNPs with a call rate of <99%)
+
+* `--genome`: create IBD report
+
+* `--het`: compute the observed and expected autosomal homozygous genotype values for each sample and writes it in .het file
+
+* `--make-bed`: generate bed/bim/fam fileset
+
+* `--out`: specify the name of the output files
 
 ## 1. Create a pruned list of SNP IDs
 
