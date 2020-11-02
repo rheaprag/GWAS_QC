@@ -413,7 +413,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-31
+<strong>Last updated:</strong> 2020-11-02
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreecc0919072542c680079e10211c803fd5ac6dee4etargetblankcc09190a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/cc0919072542c680079e10211c803fd5ac6dee4e" target="_blank">cc09190</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree4ef324976db1e2bbe974ad064040236baf64f09ftargetblank4ef3249a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/4ef324976db1e2bbe974ad064040236baf64f09f" target="_blank">4ef3249</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreecc0919072542c680079e10211c803fd5ac6dee4etargetblankcc09190a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree4ef324976db1e2bbe974ad064040236baf64f09ftargetblank4ef3249a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/cc0919072542c680079e10211c803fd5ac6dee4e" target="_blank">cc09190</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/4ef324976db1e2bbe974ad064040236baf64f09f" target="_blank">4ef3249</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -528,6 +528,7 @@ Ignored files:
     Ignored:    data/.DS_Store
 
 Untracked files:
+    Untracked:  IBD_Plot.png
     Untracked:  analysis/bootstrap.min.css
     Untracked:  hapmap3.imiss
     Untracked:  hapmap3.lmiss
@@ -566,7 +567,7 @@ Untracked files:
     Untracked:  plink
 
 Unstaged changes:
-    Modified:   analysis/00-Converting_to_plink_format.Rmd
+    Modified:   analysis/02-RelatednessFiltering.Rmd
     Deleted:    analysis/first-analysis.rmd
 
 </code></pre>
@@ -606,6 +607,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/4ef324976db1e2bbe974ad064040236baf64f09f/analysis/01-MissingnessFiltering.Rmd" target="_blank">4ef3249</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-02
+</td>
+<td>
+Add description to 01
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/de1e8c39036866436e1c02838eb1f5f08186567f/docs/01-MissingnessFiltering.html" target="_blank">de1e8c3</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-10-31
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1043,15 +1078,27 @@ Update 00 and add 01
 </div>
 <div id="determining-the-initial-threshold" class="section level2">
 <h2>1. Determining the initial threshold</h2>
+<p>The <code>--missing</code> flag will estimate the call rate of individual SNPs within the bfiles (bed/bim/fam) that were generated in the last step.</p>
 <pre class="plink"><code>./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --missing --out hapmap3</code></pre>
-<p>This creates the following files:</p>
+<div id="files-created-in-step-1" class="section level3">
+<h3>Files created in Step 1:</h3>
 <ul>
 <li><p>hapmap3.hh</p></li>
 <li><p>hapmap3.imiss</p></li>
 <li><p>hapmap3.lmiss</p></li>
 <li><p>hapmap3.log</p></li>
 </ul>
-<p>The original data that has not been edited in any way with the initial threshold:</p>
+<p>The important files created are .lmiss and .imiss. These are text files that have the following columns:</p>
+<ul>
+<li><p><strong>CHR</strong>: Chromosome number</p></li>
+<li><p><strong>SNP</strong>: SNP identifier</p></li>
+<li><p><strong>N_MISS</strong>: Number of individuals in the data set missing the SNP</p></li>
+<li><p><strong>N_GENO</strong>: Number of non-obligatory missing genotypes</p></li>
+<li><p><strong>F_MISS</strong>: Proportion of the sample set missing for the SNP</p></li>
+</ul>
+</div>
+<div id="histograms-of-unedited-data-with-initial-threshold" class="section level3">
+<h3>Histograms of unedited data with initial threshold:</h3>
 <pre><code>lmiss &lt;- read.table(&quot;hapmap3.lmiss&quot;, header = T)
 hist(lmiss$F_MISS)</code></pre>
 <p><img src="figure/01-MissingnessFiltering.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -1133,10 +1180,12 @@ rheaprag
 </div>
 </div>
 </div>
+</div>
 <div id="create-new-bfiles-based-on-the-threshold" class="section level2">
 <h2>2. Create new bfiles based on the threshold</h2>
 <pre class="plink"><code>./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --geno 0.01 --maf 0.05 --make-bed --out hapmap3_2</code></pre>
-<p>This creates the following files:</p>
+<div id="files-created-in-step-2" class="section level3">
+<h3>Files created in Step 2:</h3>
 <ul>
 <li><p>hapmap3_2.bed</p></li>
 <li><p>hapmap3_2.bim</p></li>
@@ -1144,27 +1193,48 @@ rheaprag
 <li><p>hapmap3_2.hh</p></li>
 </ul>
 </div>
-<div id="determine-the-new-threshnold-after-filtering" class="section level2">
-<h2>3. Determine the new threshnold after filtering</h2>
+<div id="details" class="section level3">
+<h3>Details</h3>
+<p>A new threshold is generated with the <code>--geno</code> and <code>--maf</code> plink flags. <code>--geno 0.01</code> filters out SNPs with missing call rates exceeding value of 0.01. <code>maf 0.05</code> filters out SNPs with a minor allele frequency below 0.05. New bflies (bed/bim/fam) with a new threshold are created with the <code>--make-bed</code>.</p>
+</div>
+</div>
+<div id="determine-the-new-threshold-after-filtering" class="section level2">
+<h2>3. Determine the new threshold after filtering</h2>
 <pre class="plink"><code>./plink --bfile hapmap3_2 --geno 0.01 --maf 0.05 --missing --out hapmap3_3</code></pre>
-<p>This creates the following files:</p>
+<div id="files-created-in-step-3" class="section level3">
+<h3>Files created in Step 3:</h3>
 <ul>
 <li><p>hapmap3_3.hh</p></li>
 <li><p>hapmap3_3.imiss</p></li>
 <li><p>hapmap3_3.lmiss</p></li>
 <li><p>hapmap3_3.log</p></li>
 </ul>
+<p>Similarly to step 1, the .imiss and .lmiss files are created with a new threshold.</p>
+</div>
 </div>
 <div id="plot-generation-and-validation-of-call-rate-distribution" class="section level2">
 <h2>4. Plot generation and validation of call rate distribution</h2>
 <pre class="plink"><code>./plink --bfile hapmap3_2 --hardy --out hapmap3_4</code></pre>
-<p>This creates the following files:</p>
+<div id="files-created-in-step-4" class="section level3">
+<h3>Files created in Step 4:</h3>
 <ul>
 <li><p>hapmap3_4.hh</p></li>
 <li><p>hapmap3_4.hwe</p></li>
 <li><p>hapmap3_4.log</p></li>
 </ul>
-<p>The data at this point after filtering with the new threshold:</p>
+<p>The .hwe file is a text file with the following columns:</p>
+<ul>
+<li><p><strong>CHR</strong>: Chromosome number</p></li>
+<li><p><strong>SNP</strong>: SNP identifier</p></li>
+<li><p><strong>TEST</strong>: Indication of what type of test being done, in this case ‘ALL’</p></li>
+<li><p><strong>A1</strong>: Allele 1 (minor allele)</p></li>
+<li><p><strong>A2</strong>: Allele 2 (major allele)</p></li>
+<li><p><strong>GENO</strong>: Separation of genotype counts (AT hom/het/A2 hom)</p></li>
+<li><p><strong>O(HET)</strong>: Observed heterozygote frequency</p></li>
+</ul>
+</div>
+<div id="histograms-with-new-threshold" class="section level3">
+<h3>Histograms with new threshold:</h3>
 <pre><code>newlmiss &lt;- read.table(&quot;hapmap3_3.lmiss&quot;, header = T)
 hist(newlmiss$F_MISS)</code></pre>
 <p><img src="figure/01-MissingnessFiltering.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -1246,10 +1316,12 @@ rheaprag
 </div>
 </div>
 </div>
+</div>
 <div id="filter-the-hardy-weinburg-equilibrium-threshold-and-then-recalculate-statistics" class="section level2">
 <h2>5. Filter the Hardy-Weinburg Equilibrium threshold and then recalculate statistics</h2>
 <pre class="plink"><code>./plink --bfile hapmap3_2 --hwe 0.0001 --make-bed --out hapmap3_5</code></pre>
-<p>This creates the following files:</p>
+<div id="files-created-in-step-5" class="section level3">
+<h3>Files created in Step 5:</h3>
 <ul>
 <li><p>hapmap3_5.bed</p></li>
 <li><p>hapmap3_5.bim</p></li>
@@ -1298,6 +1370,7 @@ loaded via a namespace (and not attached):
 [21] vctrs_0.3.4     promises_1.1.1  fs_1.5.0        glue_1.4.1     
 [25] evaluate_0.14   rmarkdown_2.3   stringi_1.4.6   compiler_4.0.2 
 [29] pillar_1.4.6    backports_1.1.8 httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
+</div>
 </div>
 </div>
 
