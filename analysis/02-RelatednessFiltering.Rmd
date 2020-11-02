@@ -8,9 +8,11 @@ editor_options:
 ---
 
 ## Introduction
-Relatedness filtering removes the dublicate records and individuals that are highly related. 
+Relatedness filtering removes the duplicate records and individuals that are highly related. 
 
 ## Flag Index
+* `--autosome`: excludes all unplaced and non-autosomal variants
+
 * `--bed`: specify the name/path of .bed file
 
 * `--bfile`: specify the name/path of bed/bim/fam files
@@ -36,7 +38,7 @@ Relatedness filtering removes the dublicate records and individuals that are hig
 ```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1
 ```
-This creates the following files:
+### Files created in Step 1:
   
 
 * hapmap3_02_1.log
@@ -49,7 +51,7 @@ This creates the following files:
 ```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --extract hapmap3_02_1.prune.in --genome --out hapmap3_02_2
 ```
-This creates the following files:
+### Files created in Step 2:
 
 * hapmap3_02_2.genome
   
@@ -70,11 +72,14 @@ ibd <- read.table("hapmap3_02_2.genome", header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```
 
+Compare this plot to the one seen in "Quality Control Procedures for Genome Wide Association Studies"^[1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3066182/)
+![IBD plot](~/Desktop/GWAS_QC/GWAS_QC/IBD_Plot.png)
+
 ## 3. Check the heterozygosity in the samples
 ```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --het --out hapmap3_02_3
 ```
-This creates the following files:
+### Files created in Step 3:
 
 * hapmap3_02_3.het
   
@@ -86,7 +91,7 @@ This creates the following files:
 ```{}
 ./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --extract hapmap3.prune.in --make-bed --out hapmap3_02_4
 ```
-This creates the following files:
+### Files created in Step 4:
 
 * hapmap3_02_4.bed
   
@@ -102,7 +107,7 @@ This creates the following files:
 ```{}
 ./plink --bfile hapmap3_02_4 -het --out hapmap3_02_5
 ```
-This creates the following files:
+### Files created in Step 5:
 
 * hapmap3_02_5.het
   
