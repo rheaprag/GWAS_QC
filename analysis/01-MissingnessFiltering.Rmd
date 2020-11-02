@@ -36,10 +36,12 @@ In order to remove SNPs that are not genotyped properly, several substeps need t
 
 
 ## 1. Determining the initial threshold
+The `--missing` flag will estimate the call rate of individual SNPs within the bfiles (bed/bim/fam) that were generated in the last step. 
 ```{plink}
 ./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --missing --out hapmap3
 ```
-This creates the following files:
+
+### Files created in Step 1:
 
 * hapmap3.hh
 
@@ -48,8 +50,20 @@ This creates the following files:
 * hapmap3.lmiss
 
 * hapmap3.log  
+
+The important files created are .lmiss and .imiss. These are text files that have the following columns:
+
+* **CHR**: Chromosome number
+
+* **SNP**: SNP identifier
+
+* **N_MISS**: Number of individuals in the data set missing the SNP
+
+* **N_GENO**: Number of non-obligatory missing genotypes
+
+* **F_MISS**: Proportion of the sample set missing for the SNP
   
-The original data that has not been edited in any way with the initial threshold:
+### Histograms of unedited data with initial threshold:
 ```{}
 lmiss <- read.table("hapmap3.lmiss", header = T)
 hist(lmiss$F_MISS)
@@ -74,7 +88,7 @@ hist(imiss$F_MISS)
 ```{plink}
 ./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --geno 0.01 --maf 0.05 --make-bed --out hapmap3_2
 ```
-This creates the following files:
+### Files created in Step 2:
 
 * hapmap3_2.bed
 
@@ -84,11 +98,14 @@ This creates the following files:
 
 * hapmap3_2.hh
 
-## 3. Determine the new threshnold after filtering
+### Details
+A new threshold is generated with the `--geno` and `--maf` plink flags. `--geno 0.01` filters out SNPs with missing call rates exceeding value of 0.01. `maf 0.05` filters out SNPs with a minor allele frequency below 0.05. New bflies (bed/bim/fam) with a new threshold are created with the `--make-bed`. 
+
+## 3. Determine the new threshold after filtering
 ```{plink}
 ./plink --bfile hapmap3_2 --geno 0.01 --maf 0.05 --missing --out hapmap3_3
 ```
-This creates the following files:
+### Files created in Step 3:
 
 * hapmap3_3.hh
 
@@ -98,11 +115,13 @@ This creates the following files:
 
 * hapmap3_3.log
 
+Similarly to step 1, the .imiss and .lmiss files are created with a new threshold.
+
 ## 4. Plot generation and validation of call rate distribution
 ```{plink}
 ./plink --bfile hapmap3_2 --hardy --out hapmap3_4
 ```
-This creates the following files:
+### Files created in Step 4:
 
 * hapmap3_4.hh
 
@@ -111,7 +130,24 @@ This creates the following files:
 * hapmap3_4.log
 
 
-The data at this point after filtering with the new threshold:
+The .hwe file is a text file with the following columns:
+
+* **CHR**: Chromosome number
+
+* **SNP**: SNP identifier
+
+* **TEST**: Indication of what type of test being done, in this case 'ALL'
+
+* **A1**: Allele 1 (minor allele)
+
+* **A2**: Allele 2 (major allele)
+
+* **GENO**: Separation of genotype counts (AT hom/het/A2 hom)
+
+* **O(HET)**: Observed heterozygote frequency
+
+
+### Histograms with new threshold:
 ```{}
 newlmiss <- read.table("hapmap3_3.lmiss", header = T)
 hist(newlmiss$F_MISS)
@@ -136,7 +172,7 @@ hist(newimiss$F_MISS)
 ```{plink}
 ./plink --bfile hapmap3_2 --hwe 0.0001 --make-bed --out hapmap3_5
 ```
-This creates the following files:
+### Files created in Step 5:
 
 * hapmap3_5.bed
 
