@@ -29,7 +29,7 @@ Relatedness filtering removes the duplicate records and individuals that are hig
 
 * `--het`: compute the observed and expected autosomal homozygous genotype values for each sample and writes it in .het file
 
-* `--make-bed`: generate bed/bim/fam fileset
+* `--make-bed`: generate bed/bim/fam file set
 
 * `--out`: specify the name of the output files
 
@@ -40,7 +40,6 @@ Relatedness filtering removes the duplicate records and individuals that are hig
 ```
 ### Files created in Step 1:
   
-
 * hapmap3_02_1.log
 
 * hapmap3_02_1.prune.in
@@ -73,7 +72,7 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 Compare this plot to the one seen in "Quality Control Procedures for Genome Wide Association Studies"^[1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3066182/)
-![IBD plot](~/Desktop/GWAS_QC/GWAS_QC/IBD_Plot.png)
+![IBD plot](/Users/rhea/Desktop/GWAS_QC/GWAS_QC/IBD_Plot.png)
 
 ## 3. Check the heterozygosity in the samples
 ```{}
