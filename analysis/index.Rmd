@@ -10,16 +10,14 @@ editor_options:
 
 Welcome to my research website.
 
-Here I will be going through several steps to do quality control on a set of hapmap data. 
-
+Here I will be going through several steps to do quality control on a set of hapmap3 data using workflowr.
 
 These are my analysis files:
 
-[00-Converting_to_plink_format](00-Converting_to_plink_format.html) 
+* [Converting to Plink](00-Converting_to_plink_format.html) 
 
-[01-MissingnessFiltering](01-MissingnessFiltering.html) 
+* [Missingness Filtering](01-MissingnessFiltering.html) 
 
-[02-RelatednessFiltering](02-RelatednessFiltering.html)
+* [Relatedness Filtering](02-RelatednessFiltering.html)
 
-
-Thank You
+Thank you.

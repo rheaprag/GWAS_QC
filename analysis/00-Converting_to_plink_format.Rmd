@@ -12,7 +12,7 @@ editor_options:
 This step converts the downloaded hapmap data to bed/bim/fam to be used by plink.
 
 ``` {}
-./plink --file hapmap3 --make-bed --out hapmap3_out
+./plink --file hapmap3 --make-bed --out hapmap3
 ```
 
 ## Details
@@ -21,14 +21,14 @@ The hapmap files that were downloaded were renamed as "hapmap3.map" and "hapmap3
 
 From the line of code, several output files are created:
 
-* hapmap3_out.bed
+* hapmap3.bed
   
-* hapmap3_out.bim
+* hapmap3.bim
   
-* hapmap3_out.fam
+* hapmap3.fam
   
-* hapmap3_out.hh
+* hapmap3.hh
   
-* hapmap3_out.log
+* hapmap3.log
 
 The files that we are especially looking for are the bed/bim/fam files so that it can be used by plink in further analysis.

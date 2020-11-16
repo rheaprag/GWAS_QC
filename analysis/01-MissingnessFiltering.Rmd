@@ -9,7 +9,7 @@ editor_options:
 
 ## Introduction
 
-In order to remove SNPs that are not genotyped properly, several substeps need to be taken. 
+In order to remove SNPs that are not genotyped properly, several steps need to be taken. 
 
 ## Flag Index
 * `--bed`: specify the name/path of .bed file
@@ -24,7 +24,7 @@ In order to remove SNPs that are not genotyped properly, several substeps need t
 
 * `--hardy`: writes a list of genotype counts and Hardy-Weinberg equilirbium test statistics to a .hwe file 
 
-* `--hwe`: filter out variants with a threshold of 0.001
+* `--hwe`: filter out variants with a threshold of 0.000001
 
 * `--maf`: filter out SNPs with a minor allele frequency <0.05
 
@@ -38,7 +38,7 @@ In order to remove SNPs that are not genotyped properly, several substeps need t
 ## 1. Determining the initial threshold
 The `--missing` flag will estimate the call rate of individual SNPs within the bfiles (bed/bim/fam) that were generated in the last step. 
 ```{plink}
-./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --missing --out hapmap3
+./plink --bfile hapmap3 --missing --out hapmap3
 ```
 
 ### Files created in Step 1:
@@ -86,48 +86,48 @@ hist(imiss$F_MISS)
 
 ## 2. Create new bfiles based on the threshold
 ```{plink}
-./plink --bed hapmap3_out.bed --bim hapmap3_out.bim --fam hapmap3_out.fam --geno 0.01 --maf 0.05 --make-bed --out hapmap3_2
+./plink --bfile hapmap3 --geno 0.01 --maf 0.05 --make-bed --out hapmap3_01_2
 ```
 ### Files created in Step 2:
 
-* hapmap3_2.bed
+* hapmap3_01_2.bed
 
-* hapmap3_2.bim
+* hapmap3_01_2.bim
 
-* hapmap3_2.fam
+* hapmap3_01_2.fam
 
-* hapmap3_2.hh
+* hapmap3_01_2.hh
 
 ### Details
 A new threshold is generated with the `--geno` and `--maf` plink flags. `--geno 0.01` filters out SNPs with missing call rates exceeding value of 0.01. `maf 0.05` filters out SNPs with a minor allele frequency below 0.05. New bflies (bed/bim/fam) with a new threshold are created with the `--make-bed`. 
 
 ## 3. Determine the new threshold after filtering
 ```{plink}
-./plink --bfile hapmap3_2 --geno 0.01 --maf 0.05 --missing --out hapmap3_3
+./plink --bfile hapmap3_01_2 --geno 0.01 --maf 0.05 --missing --out hapmap3_01_3
 ```
 ### Files created in Step 3:
 
-* hapmap3_3.hh
+* hapmap3_01_3.hh
 
-* hapmap3_3.imiss
+* hapmap3_01_3.imiss
 
-* hapmap3_3.lmiss
+* hapmap3_01_3.lmiss
 
-* hapmap3_3.log
+* hapmap3_01_3.log
 
 Similarly to step 1, the .imiss and .lmiss files are created with a new threshold.
 
 ## 4. Plot generation and validation of call rate distribution
 ```{plink}
-./plink --bfile hapmap3_2 --hardy --out hapmap3_4
+./plink --bfile hapmap3_01_2 --hardy --out hapmap3_01_4
 ```
 ### Files created in Step 4:
 
-* hapmap3_4.hh
+* hapmap3_01_4.hh
 
-* hapmap3_4.hwe
+* hapmap3_01_4.hwe
 
-* hapmap3_4.log
+* hapmap3_01_4.log
 
 
 The .hwe file is a text file with the following columns:
@@ -154,7 +154,7 @@ hist(newlmiss$F_MISS)
 ```
 
 ```{r, echo = FALSE}
-newlmiss <- read.table("hapmap3_3.lmiss", header = T)
+newlmiss <- read.table("hapmap3_01_3.lmiss", header = T)
 hist(newlmiss$F_MISS)
 ```
 
@@ -164,34 +164,40 @@ hist(newimiss$F_MISS)
 ```
 
 ```{r, echo = FALSE}
-newimiss <- read.table("hapmap3_3.imiss", header = T)
+newimiss <- read.table("hapmap3_01_3.imiss", header = T)
 hist(newimiss$F_MISS)
 ```
 
 ## 5. Filter the Hardy-Weinburg Equilibrium threshold and then recalculate statistics
 ```{plink}
-./plink --bfile hapmap3_2 --hwe 0.0001 --make-bed --out hapmap3_5
+./plink --bfile hapmap3_01_2 --hwe 0.000001 --make-bed --out hapmap3_01_5
 ```
 ### Files created in Step 5:
 
-* hapmap3_5.bed
+* hapmap3_01_5.bed
 
-* hapmap3_5.bim
+* hapmap3_01_5.bim
 
-* hapmap3_5.fam
+* hapmap3_01_5.fam
 
-* hapmap3_5.hh
+* hapmap3_01_5.hh
 
-* hapmap3_5.log
+* hapmap3_01_5.log
+
+The `hwe 0.000001` flag filters out all SNPs with a p-value below 0.000001.
 
 ```{plink}
-./plink --bfile hapmap3_5 --hardy --out hapmap3_final
+./plink --bfile hapmap3_01_5 --hardy --out hapmap3_01_6
 ```
 This creates the following files:
 
-* hapmap3_final.hh
+* hapmap3_01_6.hh
   
-* hapmap3_final.hwe
+* hapmap3_01_6.hwe
   
-* hapmap3_final.log
+* hapmap3_01_6.log
 
+```{r, echo= FALSE}
+hwe <- read.table("hapmap3_01_6.hwe", header = T)
+hist(hwe$P)
+```
