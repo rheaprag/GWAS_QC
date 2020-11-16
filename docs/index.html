@@ -333,7 +333,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-18
+<strong>Last updated:</strong> 2020-11-15
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -364,16 +364,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree8a2041c1a30a77b9c8c21acc5ded74fad42e9efatargetblank8a2041ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/8a2041c1a30a77b9c8c21acc5ded74fad42e9efa" target="_blank">8a2041c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreefc27556b153815c678c584662eccaf8768f01858targetblankfc27556a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/fc27556b153815c678c584662eccaf8768f01858" target="_blank">fc27556</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree8a2041c1a30a77b9c8c21acc5ded74fad42e9efatargetblank8a2041ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreefc27556b153815c678c584662eccaf8768f01858targetblankfc27556a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/8a2041c1a30a77b9c8c21acc5ded74fad42e9efa" target="_blank">8a2041c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/fc27556b153815c678c584662eccaf8768f01858" target="_blank">fc27556</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -384,32 +384,43 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/IBD_Plot.png
     Ignored:    data/.DS_Store
 
 Untracked files:
-    Untracked:  MissingnessFiltering/
     Untracked:  analysis/bootstrap.min.css
-    Untracked:  hapmap3.hh
-    Untracked:  hapmap3.prune.in
-    Untracked:  hapmap3.prune.out
-    Untracked:  hapmap3_02_2.genome
-    Untracked:  hapmap3_02_2.hh
-    Untracked:  hapmap3_02_2.log
-    Untracked:  hapmap3_02_3.het
-    Untracked:  hapmap3_02_3.hh
-    Untracked:  hapmap3_02_3.log
-    Untracked:  hapmap3_02_4.bed
-    Untracked:  hapmap3_02_4.bim
-    Untracked:  hapmap3_02_4.fam
-    Untracked:  hapmap3_02_4.hh
-    Untracked:  hapmap3_02_4.log
-    Untracked:  hapmap3_02_5.het
-    Untracked:  hapmap3_02_5.hh
-    Untracked:  hapmap3_02_5.log
-    Untracked:  hapmap3_5.bed
-    Untracked:  hapmap3_5.bim
-    Untracked:  hapmap3_5.fam
+    Untracked:  data/hapmap3.bed
+    Untracked:  data/hapmap3.bim
+    Untracked:  data/hapmap3.fam
+    Untracked:  data/hapmap3.map
+    Untracked:  data/hapmap3.ped
+    Untracked:  hapmap3.imiss
+    Untracked:  hapmap3.lmiss
+    Untracked:  hapmap3_01_2.bed
+    Untracked:  hapmap3_01_2.bim
+    Untracked:  hapmap3_01_2.fam
+    Untracked:  hapmap3_01_3.imiss
+    Untracked:  hapmap3_01_3.lmiss
+    Untracked:  hapmap3_01_4.hwe
+    Untracked:  hapmap3_01_5.bed
+    Untracked:  hapmap3_01_5.bim
+    Untracked:  hapmap3_01_5.fam
+    Untracked:  hapmap3_01_6.hwe
+    Untracked:  hapmap3_02_1_African.log
+    Untracked:  hapmap3_02_1_African.prune.in
+    Untracked:  hapmap3_02_1_African.prune.out
+    Untracked:  hapmap3_02_2_African.genome
+    Untracked:  hapmap3_02_2_African.log
+    Untracked:  hapmap_African.bed
+    Untracked:  hapmap_African.bim
+    Untracked:  hapmap_African.fam
+    Untracked:  hapmap_African.hh
+    Untracked:  hapmap_African.log
+    Untracked:  hapmap_African_populations.txt
     Untracked:  plink
+
+Unstaged changes:
+    Deleted:    analysis/first-analysis.rmd
 
 </code></pre>
 <p>
@@ -448,6 +459,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/fc27556b153815c678c584662eccaf8768f01858/analysis/index.Rmd" target="_blank">fc27556</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-15
+</td>
+<td>
+Fix formatting in files
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/190306ffc4c0da971c5a9d42a5e49c6f2225e637/docs/index.html" target="_blank">190306f</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-10-18
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -966,12 +1011,14 @@ Start workflowr project.
 </div>
 </div>
 <p>Welcome to my research website.</p>
-<p>Here I will be going through several steps to do quality control on a set of hapmap data.</p>
+<p>Here I will be going through several steps to do quality control on a set of hapmap3 data using workflowr.</p>
 <p>These are my analysis files:</p>
-<p><a href="00-Converting_to_plink_format.html">00-Converting_to_plink_format</a></p>
-<p><a href="01-MissingnessFiltering.html">01-MissingnessFiltering</a></p>
-<p><a href="02-RelatednessFiltering.html">02-RelatednessFiltering</a></p>
-<p>Thank You</p>
+<ul>
+<li><p><a href="00-Converting_to_plink_format.html">Converting to Plink</a></p></li>
+<li><p><a href="01-MissingnessFiltering.html">Missingness Filtering</a></p></li>
+<li><p><a href="02-RelatednessFiltering.html">Relatedness Filtering</a></p></li>
+</ul>
+<p>Thank you.</p>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
