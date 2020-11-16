@@ -52,7 +52,7 @@ The following populations were grouped:
 
 * Utah: CEU
 
-* Chinese_Colorado: CHD
+* Colorado Chinese: CHD
 
 * Gujarati: GIH
 
