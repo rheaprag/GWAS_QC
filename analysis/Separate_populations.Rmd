@@ -34,12 +34,6 @@ Hapmap3 data is a has various populations. Therefore, in order there to be a pro
 
 The population samples and their labels can be found in the [hapmap3 index](ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/hapmap3/plink_format/draft_2) under phase_3_samples.doc. 
 
-For example, the ASW or African ancestry in Southwest USA populations can be separated out as so:
-
-```{}
-grep "ASW" relationships_w_pops_121708.txt
-```
-
 The following populations were grouped:
 
 * African: ASW, LWK, MKK, YRI
@@ -56,11 +50,32 @@ The following populations were grouped:
 
 * Toscans: TSI
 
-New bed/bim/fam files need to be created with the separate populations. For example, the African population:
+## African population
+
+```{}
+grep "ASW" relationships_w_pops_121708.txt
+```
+
+The `grep` command pulls out the lines with the keyword, in this case "ASW". This can be repeated with the rest of the populations that were grouped:
+
+```{}
+grep "LWK" relationships_w_pops_121708.txt
+```
+```{}
+grep "MKK" relationships_w_pops_121708.txt
+```
+```{}
+grep "YRI" relationships_w_pops_121708.txt
+```
+
+These populations are copied into a new `.txt.` file called `hapmap_African_populations.txt`. 
+
+Then new bfiles need to be created:
 
 ```{}
 ./plink --bfile hapmap3_01_5 --keep hapmap_African_populations.txt --make-bed --out hapmap_African
 ```
+
 ### Files created with African population subset:
 
 * hapmap_African.hh
@@ -74,3 +89,96 @@ New bed/bim/fam files need to be created with the separate populations. For exam
 * hapmap_African.log
 
 This process can be completed with the rest of the population subsets in order to get bed/bim files for all of them.
+
+## East Asian Population
+
+```{}
+grep "CHB" relationships_w_pops_121708.txt
+```
+
+```{}
+grep "JPT" relationships_w_pops_121708.txt
+```
+
+These populations are copied into a new `.txt.` file called `hapmap_EastAsia_populations.txt`. 
+
+Then new bfiles need to be created:
+
+```{}
+./plink --bfile hapmap3_01_5 --keep hapmap_EastAsia_populations.txt --make-bed --out hapmap_EastAsia
+```
+
+## Utah Population
+
+```{}
+grep "CEU" relationships_w_pops_121708.txt
+```
+
+This population are copied into a new `.txt.` file called `hapmap_Utah_populations.txt`. 
+
+Then new bfiles need to be created:
+
+```{}
+./plink --bfile hapmap3_01_5 --keep hapmap_Utah_populations.txt --make-bed --out hapmap_Utah
+```
+
+## Colorado Chinese
+
+```{}
+grep "CHD" relationships_w_pops_121708.txt
+```
+
+This population are copied into a new `.txt.` file called `hapmap_ColoradoChinese_populations.txt`. 
+
+Then new bfiles need to be created:
+
+```{}
+./plink --bfile hapmap3_01_5 --keep hapmap_ColoradoChinese_populations.txt --make-bed --out hapmap_ColoradoChinese
+```
+
+## Gujarati
+
+```{}
+grep "GIH" relationships_w_pops_121708.txt
+```
+
+This population are copied into a new `.txt.` file called `hapmap_Gujarati_populations.txt`. 
+
+Then new bfiles need to be created:
+
+```{}
+./plink --bfile hapmap3_01_5 --keep hapmap_Gujarati_populations.txt --make-bed --out hapmap_Gujarati
+```
+
+## Mexican
+
+```{}
+grep "MEX" relationships_w_pops_121708.txt
+```
+
+This population are copied into a new `.txt.` file called `hapmap_Mexican_populations.txt`. 
+
+Then new bfiles need to be created:
+
+```{}
+./plink --bfile hapmap3_01_5 --keep hapmap_Mexican_populations.txt --make-bed --out hapmap_Mexican
+```
+
+## Toscans
+
+```{}
+grep "TSI" relationships_w_pops_121708.txt
+```
+
+This population are copied into a new `.txt.` file called `hapmap_Toscans_populations.txt`. 
+
+Then new bfiles need to be created:
+
+```{}
+./plink --bfile hapmap3_01_5 --keep hapmap_Toscans_populations.txt --make-bed --out hapmap_Toscans
+```
+
+## Next Steps
+Now that the populations are separated, the individual bfiles can go onto Relatedness Filtering.
+
+
