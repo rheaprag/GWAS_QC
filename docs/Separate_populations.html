@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree5e037f5f417977ce2c05810f593c062fdd75d27ctargetblank5e037f5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/5e037f5f417977ce2c05810f593c062fdd75d27c" target="_blank">5e037f5</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreeb3df02990477e1e053c8e20d73e1111721ecec56targetblankb3df029a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/b3df02990477e1e053c8e20d73e1111721ecec56" target="_blank">b3df029</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree5e037f5f417977ce2c05810f593c062fdd75d27ctargetblank5e037f5a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreeb3df02990477e1e053c8e20d73e1111721ecec56targetblankb3df029a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/5e037f5f417977ce2c05810f593c062fdd75d27c" target="_blank">5e037f5</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/b3df02990477e1e053c8e20d73e1111721ecec56" target="_blank">b3df029</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -563,6 +563,9 @@ Untracked files:
     Untracked:  hapmap_African_populations.txt
     Untracked:  plink
 
+Unstaged changes:
+    Modified:   analysis/02-RelatednessFiltering.Rmd
+
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -605,6 +608,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/b3df02990477e1e053c8e20d73e1111721ecec56/analysis/Separate_populations.Rmd" target="_blank">b3df029</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+<td>
+Update with all populations
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/17afe17fb96b7440511892a2fa0f03f5d70e00ce/docs/Separate_populations.html" target="_blank">17afe17</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/5e037f5f417977ce2c05810f593c062fdd75d27c/analysis/Separate_populations.Rmd" target="_blank">5e037f5</a>
 </td>
 <td>
@@ -634,10 +671,45 @@ Update index.rmd with new files
 ibd &lt;- read.table(&quot;hapmap3_allpop.genome&quot;, header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
 <p><img src="figure/Separate_populations.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
+Past versions of unnamed-chunk-1-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/17afe17fb96b7440511892a2fa0f03f5d70e00ce/docs/figure/Separate_populations.Rmd/unnamed-chunk-1-1.png" target="_blank">17afe17</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Hapmap3 data is a has various populations. Therefore, in order there to be a proper analysis, the populations need to be separated as seen in the following steps:</p>
 <p>The population samples and their labels can be found in the <a href="ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/hapmap3/plink_format/draft_2">hapmap3 index</a> under phase_3_samples.doc.</p>
-<p>For example, the ASW or African ancestry in Southwest USA populations can be separated out as so:</p>
-<pre><code>grep &quot;ASW&quot; relationships_w_pops_121708.txt</code></pre>
 <p>The following populations were grouped:</p>
 <ul>
 <li><p>African: ASW, LWK, MKK, YRI</p></li>
@@ -648,7 +720,16 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
 <li><p>Mexican: MEX</p></li>
 <li><p>Toscans: TSI</p></li>
 </ul>
-<p>New bed/bim/fam files need to be created with the separate populations. For example, the African population:</p>
+</div>
+<div id="african-population" class="section level2">
+<h2>African population</h2>
+<pre><code>grep &quot;ASW&quot; relationships_w_pops_121708.txt</code></pre>
+<p>The <code>grep</code> command pulls out the lines with the keyword, in this case “ASW”. This can be repeated with the rest of the populations that were grouped:</p>
+<pre><code>grep &quot;LWK&quot; relationships_w_pops_121708.txt</code></pre>
+<pre><code>grep &quot;MKK&quot; relationships_w_pops_121708.txt</code></pre>
+<pre><code>grep &quot;YRI&quot; relationships_w_pops_121708.txt</code></pre>
+<p>These populations are copied into a new <code>.txt.</code> file called <code>hapmap_African_populations.txt</code>.</p>
+<p>Then new bfiles need to be created:</p>
 <pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_African_populations.txt --make-bed --out hapmap_African</code></pre>
 <div id="files-created-with-african-population-subset" class="section level3">
 <h3>Files created with African population subset:</h3>
@@ -660,6 +741,54 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
 <li><p>hapmap_African.log</p></li>
 </ul>
 <p>This process can be completed with the rest of the population subsets in order to get bed/bim files for all of them.</p>
+</div>
+</div>
+<div id="east-asian-population" class="section level2">
+<h2>East Asian Population</h2>
+<pre><code>grep &quot;CHB&quot; relationships_w_pops_121708.txt</code></pre>
+<pre><code>grep &quot;JPT&quot; relationships_w_pops_121708.txt</code></pre>
+<p>These populations are copied into a new <code>.txt.</code> file called <code>hapmap_EastAsia_populations.txt</code>.</p>
+<p>Then new bfiles need to be created:</p>
+<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_EastAsia_populations.txt --make-bed --out hapmap_EastAsia</code></pre>
+</div>
+<div id="utah-population" class="section level2">
+<h2>Utah Population</h2>
+<pre><code>grep &quot;CEU&quot; relationships_w_pops_121708.txt</code></pre>
+<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Utah_populations.txt</code>.</p>
+<p>Then new bfiles need to be created:</p>
+<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Utah_populations.txt --make-bed --out hapmap_Utah</code></pre>
+</div>
+<div id="colorado-chinese" class="section level2">
+<h2>Colorado Chinese</h2>
+<pre><code>grep &quot;CHD&quot; relationships_w_pops_121708.txt</code></pre>
+<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_ColoradoChinese_populations.txt</code>.</p>
+<p>Then new bfiles need to be created:</p>
+<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_ColoradoChinese_populations.txt --make-bed --out hapmap_ColoradoChinese</code></pre>
+</div>
+<div id="gujarati" class="section level2">
+<h2>Gujarati</h2>
+<pre><code>grep &quot;GIH&quot; relationships_w_pops_121708.txt</code></pre>
+<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Gujarati_populations.txt</code>.</p>
+<p>Then new bfiles need to be created:</p>
+<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Gujarati_populations.txt --make-bed --out hapmap_Gujarati</code></pre>
+</div>
+<div id="mexican" class="section level2">
+<h2>Mexican</h2>
+<pre><code>grep &quot;MEX&quot; relationships_w_pops_121708.txt</code></pre>
+<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Mexican_populations.txt</code>.</p>
+<p>Then new bfiles need to be created:</p>
+<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Mexican_populations.txt --make-bed --out hapmap_Mexican</code></pre>
+</div>
+<div id="toscans" class="section level2">
+<h2>Toscans</h2>
+<pre><code>grep &quot;TSI&quot; relationships_w_pops_121708.txt</code></pre>
+<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Toscans_populations.txt</code>.</p>
+<p>Then new bfiles need to be created:</p>
+<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Toscans_populations.txt --make-bed --out hapmap_Toscans</code></pre>
+</div>
+<div id="next-steps" class="section level2">
+<h2>Next Steps</h2>
+<p>Now that the populations are separated, the individual bfiles can go onto Relatedness Filtering.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -696,7 +825,6 @@ loaded via a namespace (and not attached):
 [29] whisker_0.4      backports_1.1.8  scales_1.1.1     promises_1.1.1  
 [33] ellipsis_0.3.1   htmltools_0.5.0  colorspace_1.4-1 httpuv_1.5.4    
 [37] labeling_0.4.2   stringi_1.4.6    munsell_0.5.0    crayon_1.3.4    </code></pre>
-</div>
 </div>
 </div>
 
