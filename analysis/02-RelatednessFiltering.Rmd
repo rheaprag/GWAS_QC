@@ -33,50 +33,8 @@ Relatedness filtering removes the duplicate records and individuals that are hig
 
 * `--out`: specify the name of the output files
 
+
 ## 1. Create a pruned list of SNP IDs
-The set of data in hapmap3 has various populations within it. In order for there to be proper IBD analyses, the populations need to be separated. 
-
-The population samples and their labels can be found in the [hapmap3 index](ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/hapmap3/plink_format/draft_2) under phase_3_samples.doc. 
-
-For example, the ASW or African ancestry in Southwest USA populations can be separated out as so:
-
-```{}
-grep "ASW" relationships_w_pops_121708.txt
-```
-
-The following populations were grouped:
-
-* African: ASW, LWK, MKK, YRI
-
-* East Asian: CHB, JPT
-
-* Utah: CEU
-
-* Colorado Chinese: CHD
-
-* Gujarati: GIH
-
-* Mexican: MEX
-
-* Toscans: TSI
-
-New bed/bim/fam files need to be created with the separate populations. For example, the African population:
-
-```{}
-./plink --bfile hapmap3_01_5 --keep hapmap_African_populations.txt --make-bed --out hapmap_African
-```
-### Files created with African population subset:
-
-* hapmap_African.hh
-
-* hapmap_African.bed
-
-* hapmap_African.bim
-
-* hapmap_African.fam
-
-* hapmap_African.log
-
 
 ```{}
 ./plink --bfile hapmap_African --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_African
@@ -114,9 +72,7 @@ ibd <- read.table("hapmap3_02_2_African.genome", header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```
 
-Compare this plot to the one seen in "Quality Control Procedures for Genome Wide Association Studies" which can be found [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3066182/).
-
-![IBD plot](IBD_Plot.png)
+The rest of the IBD plots for the population subsets can be seen [here]().
 
 ## 3. Check the heterozygosity in the samples
 ```{}

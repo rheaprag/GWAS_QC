@@ -1,0 +1,76 @@
+---
+title: "Separate_populations"
+author: "rheaprag"
+date: "2020-11-17"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+## Hapmap3 Data 
+If the bed/bim/fam files from the previous step were taken, it would look like this:
+
+```{}
+./plink --bfile hapmap3_01_5 --autosome --indep-pairwise 50 5 0.2 --out hapmap3_allpop
+```
+
+```{}
+./plink --bfile hapmap3_01_5 --extract hapmap3_allpop.prune.in --genome --out hapmap3_allpop
+```
+
+The IBD plots would then look like this:
+```{}
+library("ggplot2")
+ibd <- read.table("hapmap3_allpop.genome", header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+```
+
+```{r, echo = FALSE}
+library("ggplot2")
+ibd <- read.table("hapmap3_allpop.genome", header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+```
+
+Hapmap3 data is a has various populations. Therefore, in order there to be a proper analysis, the populations need to be separated as seen in the following steps:
+
+The population samples and their labels can be found in the [hapmap3 index](ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/hapmap3/plink_format/draft_2) under phase_3_samples.doc. 
+
+For example, the ASW or African ancestry in Southwest USA populations can be separated out as so:
+
+```{}
+grep "ASW" relationships_w_pops_121708.txt
+```
+
+The following populations were grouped:
+
+* African: ASW, LWK, MKK, YRI
+
+* East Asian: CHB, JPT
+
+* Utah: CEU
+
+* Colorado Chinese: CHD
+
+* Gujarati: GIH
+
+* Mexican: MEX
+
+* Toscans: TSI
+
+New bed/bim/fam files need to be created with the separate populations. For example, the African population:
+
+```{}
+./plink --bfile hapmap3_01_5 --keep hapmap_African_populations.txt --make-bed --out hapmap_African
+```
+### Files created with African population subset:
+
+* hapmap_African.hh
+
+* hapmap_African.bed
+
+* hapmap_African.bim
+
+* hapmap_African.fam
+
+* hapmap_African.log
+
+This process can be completed with the rest of the population subsets in order to get bed/bim files for all of them.

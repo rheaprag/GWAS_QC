@@ -18,6 +18,8 @@ These are my analysis files:
 
 * [Missingness Filtering](01-MissingnessFiltering.html) 
 
+* [Separate Populations](Separate_populations.html)
+
 * [Relatedness Filtering](02-RelatednessFiltering.html)
 
 Thank you.
