@@ -117,6 +117,27 @@ A new threshold is generated with the `--geno` and `--maf` plink flags. `--geno 
 
 Similarly to step 1, the .imiss and .lmiss files are created with a new threshold.
 
+### Histograms with new threshold:
+```{}
+newlmiss <- read.table("hapmap3_3.lmiss", header = T)
+hist(newlmiss$F_MISS)
+```
+
+```{r, echo = FALSE}
+newlmiss <- read.table("hapmap3_01_3.lmiss", header = T)
+hist(newlmiss$F_MISS)
+```
+
+```{}
+newimiss <- read.table("hapmap3_3.imiss", header = T)
+hist(newimiss$F_MISS)
+```
+
+```{r, echo = FALSE}
+newimiss <- read.table("hapmap3_01_3.imiss", header = T)
+hist(newimiss$F_MISS)
+```
+
 ## 4. Plot generation and validation of call rate distribution
 ```{plink}
 ./plink --bfile hapmap3_01_2 --hardy --out hapmap3_01_4
@@ -146,29 +167,20 @@ The .hwe file is a text file with the following columns:
 
 * **O(HET)**: Observed heterozygote frequency
 
-
-### Histograms with new threshold:
-```{}
-newlmiss <- read.table("hapmap3_3.lmiss", header = T)
-hist(newlmiss$F_MISS)
-```
-
-```{r, echo = FALSE}
-newlmiss <- read.table("hapmap3_01_3.lmiss", header = T)
-hist(newlmiss$F_MISS)
-```
+Plotting the distribution:
 
 ```{}
-newimiss <- read.table("hapmap3_3.imiss", header = T)
-hist(newimiss$F_MISS)
+hwe <- read.table("hapmap3_01_4.hwe", header = T)
+hist(hwe$P)
 ```
 
-```{r, echo = FALSE}
-newimiss <- read.table("hapmap3_01_3.imiss", header = T)
-hist(newimiss$F_MISS)
+```{r, echo= FALSE}
+hwe <- read.table("hapmap3_01_4.hwe", header = T)
+hist(hwe$P)
 ```
 
 ## 5. Filter the Hardy-Weinburg Equilibrium threshold and then recalculate statistics
+
 ```{plink}
 ./plink --bfile hapmap3_01_2 --hwe 0.000001 --make-bed --out hapmap3_01_5
 ```
@@ -197,7 +209,14 @@ This creates the following files:
   
 * hapmap3_01_6.log
 
+Plot the new distribution:
+
+```{}
+newhwe <- read.table("hapmap3_01_6.hwe", header = T)
+hist(newhwe$P)
+```
+
 ```{r, echo= FALSE}
-hwe <- read.table("hapmap3_01_6.hwe", header = T)
-hist(hwe$P)
+newhwe <- read.table("hapmap3_01_6.hwe", header = T)
+hist(newhwe$P)
 ```
