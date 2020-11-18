@@ -72,7 +72,7 @@ ibd <- read.table("hapmap3_02_2_African.genome", header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```
 
-The rest of the IBD plots for the population subsets can be seen [here](IBD_plots.Rmd).
+The rest of the IBD plots for the population subsets can be seen [here](IBD_plots.html).
 
 ## 3. Check the heterozygosity in the samples
 ```{}
