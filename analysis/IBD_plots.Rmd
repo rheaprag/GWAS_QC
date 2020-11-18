@@ -31,7 +31,7 @@ ibd <- read.table("hapmap3_02_2_EastAsia.genome", header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```
 
-##Utah
+## Utah
 ```{}
 ./plink --bfile hapmap_Utah --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_Utah
 ```
