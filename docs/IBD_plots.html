@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-11-17" />
 
-<title>Separate_populations</title>
+<title>IBD_plots</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -386,7 +386,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Separate_populations</h1>
+<h1 class="title toc-ignore">IBD_plots</h1>
 <h4 class="author">rheaprag</h4>
 <h4 class="date">2020-11-17</h4>
 
@@ -644,7 +644,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/Separate_populations.Rmd</code>) and HTML (<code>docs/Separate_populations.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/IBD_plots.Rmd</code>) and HTML (<code>docs/IBD_plots.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -673,7 +673,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/rheaprag/GWAS_QC/blob/712ac0b09332d0e93d3916d7e65752fdc03d2cdc/analysis/Separate_populations.Rmd" target="_blank">712ac0b</a>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/712ac0b09332d0e93d3916d7e65752fdc03d2cdc/analysis/IBD_plots.Rmd" target="_blank">712ac0b</a>
 </td>
 <td>
 rheaprag
@@ -685,74 +685,6 @@ rheaprag
 Add populations to files
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/c075698881e96e0d76ea0ced5bda6a6ab6ece212/docs/Separate_populations.html" target="_blank">c075698</a>
-</td>
-<td>
-rheaprag
-</td>
-<td>
-2020-11-17
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rheaprag/GWAS_QC/blob/b3df02990477e1e053c8e20d73e1111721ecec56/analysis/Separate_populations.Rmd" target="_blank">b3df029</a>
-</td>
-<td>
-rheaprag
-</td>
-<td>
-2020-11-17
-</td>
-<td>
-Update with all populations
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/17afe17fb96b7440511892a2fa0f03f5d70e00ce/docs/Separate_populations.html" target="_blank">17afe17</a>
-</td>
-<td>
-rheaprag
-</td>
-<td>
-2020-11-17
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rheaprag/GWAS_QC/blob/5e037f5f417977ce2c05810f593c062fdd75d27c/analysis/Separate_populations.Rmd" target="_blank">5e037f5</a>
-</td>
-<td>
-rheaprag
-</td>
-<td>
-2020-11-17
-</td>
-<td>
-Update index.rmd with new files
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -760,134 +692,61 @@ Update index.rmd with new files
 </div>
 </div>
 </div>
-<div id="hapmap3-data" class="section level2">
-<h2>Hapmap3 Data</h2>
-<p>If the bed/bim/fam files from the previous step were taken, it would look like this:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --autosome --indep-pairwise 50 5 0.2 --out hapmap3_allpop</code></pre>
-<pre><code>./plink --bfile hapmap3_01_5 --extract hapmap3_allpop.prune.in --genome --out hapmap3_allpop</code></pre>
-<p>The IBD plots would then look like this:</p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Here are the IBD plots created during Relatedness Filtering for the various populations.</p>
+</div>
+<div id="east-asia" class="section level2">
+<h2>East Asia</h2>
+<pre><code>./plink --bfile hapmap_EastAsia --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_EastAsia</code></pre>
+<pre><code>./plink --bfile hapmap_EastAsia --extract hapmap3_02_1_EastAsia.prune.in --genome --out hapmap3_02_2_EastAsia</code></pre>
 <pre><code>library(&quot;ggplot2&quot;)
-ibd &lt;- read.table(&quot;hapmap3_allpop.genome&quot;, header = T)
+ibd &lt;- read.table(&quot;hapmap3_02_2_EastAsia.genome&quot;, header = T)
 ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
-<p><img src="figure/Separate_populations.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
-Past versions of unnamed-chunk-1-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-1-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/rheaprag/GWAS_QC/blob/17afe17fb96b7440511892a2fa0f03f5d70e00ce/docs/figure/Separate_populations.Rmd/unnamed-chunk-1-1.png" target="_blank">17afe17</a>
-</td>
-<td>
-rheaprag
-</td>
-<td>
-2020-11-17
-</td>
-</tr>
-</tbody>
-</table>
+<p><img src="figure/IBD_plots.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>##Utah</p>
+<pre><code>./plink --bfile hapmap_Utah --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_Utah</code></pre>
+<pre><code>./plink --bfile hapmap_Utah --extract hapmap3_02_1_Utah.prune.in --genome --out hapmap3_02_2_Utah</code></pre>
+<pre><code>library(&quot;ggplot2&quot;)
+ibd &lt;- read.table(&quot;hapmap3_02_2_Utah.genome&quot;, header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
+<p><img src="figure/IBD_plots.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-</div>
-<p>Hapmap3 data is a has various populations. Therefore, in order there to be a proper analysis, the populations need to be separated as seen in the following steps:</p>
-<p>The population samples and their labels can be found in the <a href="ftp://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/hapmap3/plink_format/draft_2">hapmap3 index</a> under phase_3_samples.doc.</p>
-<p>The following populations were grouped:</p>
-<ul>
-<li><p>African: ASW, LWK, MKK, YRI</p></li>
-<li><p>East Asian: CHB, JPT</p></li>
-<li><p>Utah: CEU</p></li>
-<li><p>Colorado Chinese: CHD</p></li>
-<li><p>Gujarati: GIH</p></li>
-<li><p>Mexican: MEX</p></li>
-<li><p>Toscans: TSI</p></li>
-</ul>
-</div>
-<div id="african-population" class="section level2">
-<h2>African population</h2>
-<pre><code>grep &quot;ASW&quot; relationships_w_pops_121708.txt</code></pre>
-<p>The <code>grep</code> command pulls out the lines with the keyword, in this case “ASW”. This can be repeated with the rest of the populations that were grouped:</p>
-<pre><code>grep &quot;LWK&quot; relationships_w_pops_121708.txt</code></pre>
-<pre><code>grep &quot;MKK&quot; relationships_w_pops_121708.txt</code></pre>
-<pre><code>grep &quot;YRI&quot; relationships_w_pops_121708.txt</code></pre>
-<p>These populations are copied into a new <code>.txt.</code> file called <code>hapmap_African_populations.txt</code>.</p>
-<p>Then new bfiles need to be created:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_African_populations.txt --make-bed --out hapmap_African</code></pre>
-<div id="files-created-with-african-population-subset" class="section level3">
-<h3>Files created with African population subset:</h3>
-<ul>
-<li><p>hapmap_African.hh</p></li>
-<li><p>hapmap_African.bed</p></li>
-<li><p>hapmap_African.bim</p></li>
-<li><p>hapmap_African.fam</p></li>
-<li><p>hapmap_African.log</p></li>
-</ul>
-<p>This process can be completed with the rest of the population subsets in order to get bed/bim files for all of them.</p>
-</div>
-</div>
-<div id="east-asian-population" class="section level2">
-<h2>East Asian Population</h2>
-<pre><code>grep &quot;CHB&quot; relationships_w_pops_121708.txt</code></pre>
-<pre><code>grep &quot;JPT&quot; relationships_w_pops_121708.txt</code></pre>
-<p>These populations are copied into a new <code>.txt.</code> file called <code>hapmap_EastAsia_populations.txt</code>.</p>
-<p>Then new bfiles need to be created:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_EastAsia_populations.txt --make-bed --out hapmap_EastAsia</code></pre>
-</div>
-<div id="utah-population" class="section level2">
-<h2>Utah Population</h2>
-<pre><code>grep &quot;CEU&quot; relationships_w_pops_121708.txt</code></pre>
-<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Utah_populations.txt</code>.</p>
-<p>Then new bfiles need to be created:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Utah_populations.txt --make-bed --out hapmap_Utah</code></pre>
-</div>
-<div id="colorado-chinese" class="section level2">
-<h2>Colorado Chinese</h2>
-<pre><code>grep &quot;CHD&quot; relationships_w_pops_121708.txt</code></pre>
-<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_ChineseColorado_populations.txt</code>.</p>
-<p>Then new bfiles need to be created:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_ChineseColorado_populations.txt --make-bed --out hapmap_ColoradoChinese</code></pre>
+<div id="chinese-colorado" class="section level2">
+<h2>Chinese Colorado</h2>
+<pre><code>./plink --bfile hapmap_ColoradoChinese --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_ColoradoChinese</code></pre>
+<pre><code>./plink --bfile hapmap_ColoradoChinese --extract hapmap3_02_1_ColoradoChinese.prune.in --genome --out hapmap3_02_2_ColoradoChinese</code></pre>
+<pre><code>library(&quot;ggplot2&quot;)
+ibd &lt;- read.table(&quot;hapmap3_02_2_ColoradoChinese.genome&quot;, header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
+<p><img src="figure/IBD_plots.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="gujarati" class="section level2">
 <h2>Gujarati</h2>
-<pre><code>grep &quot;GIH&quot; relationships_w_pops_121708.txt</code></pre>
-<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Gujarati_populations.txt</code>.</p>
-<p>Then new bfiles need to be created:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Gujarati_populations.txt --make-bed --out hapmap_Gujarati</code></pre>
+<pre><code>./plink --bfile hapmap_Gujarati --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_Gujarati</code></pre>
+<pre><code>./plink --bfile hapmap_Gujarati --extract hapmap3_02_1_Gujarati.prune.in --genome --out hapmap3_02_2_Gujarati</code></pre>
+<pre><code>library(&quot;ggplot2&quot;)
+ibd &lt;- read.table(&quot;hapmap3_02_2_Gujarati.genome&quot;, header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
+<p><img src="figure/IBD_plots.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="mexican" class="section level2">
 <h2>Mexican</h2>
-<pre><code>grep &quot;MEX&quot; relationships_w_pops_121708.txt</code></pre>
-<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Mexican_populations.txt</code>.</p>
-<p>Then new bfiles need to be created:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Mexican_populations.txt --make-bed --out hapmap_Mexican</code></pre>
+<pre><code>./plink --bfile hapmap_Mexican --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_Mexican</code></pre>
+<pre><code>./plink --bfile hapmap_Mexican --extract hapmap3_02_1_Mexican.prune.in --genome --out hapmap3_02_2_Mexican</code></pre>
+<pre><code>library(&quot;ggplot2&quot;)
+ibd &lt;- read.table(&quot;hapmap3_02_2_Mexican.genome&quot;, header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
+<p><img src="figure/IBD_plots.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="toscans" class="section level2">
 <h2>Toscans</h2>
-<pre><code>grep &quot;TSI&quot; relationships_w_pops_121708.txt</code></pre>
-<p>This population are copied into a new <code>.txt.</code> file called <code>hapmap_Toscans_populations.txt</code>.</p>
-<p>Then new bfiles need to be created:</p>
-<pre><code>./plink --bfile hapmap3_01_5 --keep hapmap_Toscans_populations.txt --make-bed --out hapmap_Toscans</code></pre>
-</div>
-<div id="next-steps" class="section level2">
-<h2>Next Steps</h2>
-<p>Now that the populations are separated, the individual bfiles can go onto Relatedness Filtering.</p>
+<pre><code>./plink --bfile hapmap_Toscans --autosome --indep-pairwise 50 5 0.2 --out hapmap3_02_1_Toscans</code></pre>
+<pre><code>./plink --bfile hapmap_Toscans --extract hapmap3_02_1_Toscans.prune.in --genome --out hapmap3_02_2_Toscans</code></pre>
+<pre><code>library(&quot;ggplot2&quot;)
+ibd &lt;- read.table(&quot;hapmap3_02_2_Toscans.genome&quot;, header = T)
+ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()</code></pre>
+<p><img src="figure/IBD_plots.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
