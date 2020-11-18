@@ -128,12 +128,12 @@ Then new bfiles need to be created:
 grep "CHD" relationships_w_pops_121708.txt
 ```
 
-This population are copied into a new `.txt.` file called `hapmap_ColoradoChinese_populations.txt`. 
+This population are copied into a new `.txt.` file called `hapmap_ChineseColorado_populations.txt`. 
 
 Then new bfiles need to be created:
 
 ```{}
-./plink --bfile hapmap3_01_5 --keep hapmap_ColoradoChinese_populations.txt --make-bed --out hapmap_ColoradoChinese
+./plink --bfile hapmap3_01_5 --keep hapmap_ChineseColorado_populations.txt --make-bed --out hapmap_ColoradoChinese
 ```
 
 ## Gujarati
