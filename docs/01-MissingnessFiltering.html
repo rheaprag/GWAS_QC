@@ -413,7 +413,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-17
+<strong>Last updated:</strong> 2020-11-22
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree0cea7d6636cdd675bb99b61e7a0351c6eac4392atargetblank0cea7d6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/0cea7d6636cdd675bb99b61e7a0351c6eac4392a" target="_blank">0cea7d6</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree0bd6e218945163deacfa10bddc73dcbb63295dd2targetblank0bd6e21a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/0bd6e218945163deacfa10bddc73dcbb63295dd2" target="_blank">0bd6e21</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree0cea7d6636cdd675bb99b61e7a0351c6eac4392atargetblank0cea7d6a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtree0bd6e218945163deacfa10bddc73dcbb63295dd2targetblank0bd6e21a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/0cea7d6636cdd675bb99b61e7a0351c6eac4392a" target="_blank">0cea7d6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/0bd6e218945163deacfa10bddc73dcbb63295dd2" target="_blank">0bd6e21</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -524,7 +524,6 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/figure/
     Ignored:    data/.DS_Store
 
 Untracked files:
@@ -603,7 +602,6 @@ Untracked files:
     Untracked:  hapmap_Utah.bim
     Untracked:  hapmap_Utah.fam
     Untracked:  hapmap_Utah_populations.txt
-    Untracked:  plink
     Untracked:  relationships_w_pops_121708.txt
 
 </code></pre>
@@ -643,6 +641,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/0bd6e218945163deacfa10bddc73dcbb63295dd2/analysis/01-MissingnessFiltering.Rmd" target="_blank">0bd6e21</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-22
+</td>
+<td>
+Add annotations
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/ac2f74d33f148077d497839e3c237fc847c0db88/docs/01-MissingnessFiltering.html" target="_blank">ac2f74d</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1203,6 +1235,7 @@ Update 00 and add 01
 </div>
 <div id="histograms-of-unedited-data-with-initial-threshold" class="section level3">
 <h3>Histograms of unedited data with initial threshold:</h3>
+<p>A histogram was plotted of the missingness data to see how it is distributed. This will help in determining the threshold.</p>
 <pre><code>lmiss &lt;- read.table(&quot;hapmap3.lmiss&quot;, header = T)
 hist(lmiss$F_MISS)</code></pre>
 <p><img src="figure/01-MissingnessFiltering.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -1283,6 +1316,7 @@ rheaprag
 </table>
 </div>
 </div>
+<p>By looking at the histograms, most of the SNPs fall within the 0.01 missingness threshold. Therefore, this is the threshold that will be used in the following step.</p>
 </div>
 </div>
 <div id="create-new-bfiles-based-on-the-threshold" class="section level2">
@@ -1299,7 +1333,7 @@ rheaprag
 </div>
 <div id="details" class="section level3">
 <h3>Details</h3>
-<p>A new threshold is generated with the <code>--geno</code> and <code>--maf</code> plink flags. <code>--geno 0.01</code> filters out SNPs with missing call rates exceeding value of 0.01. <code>maf 0.05</code> filters out SNPs with a minor allele frequency below 0.05. New bflies (bed/bim/fam) with a new threshold are created with the <code>--make-bed</code>.</p>
+<p>A new threshold is generated with the <code>--geno</code> and <code>--maf</code> plink flags. <code>--geno 0.01</code> filters out SNPs with missing call rates &lt;99%. <code>maf 0.05</code> filters out SNPs with a minor allele frequency below 0.05. New bflies (bed/bim/fam) with a new threshold are created with the <code>--make-bed</code>.</p>
 </div>
 </div>
 <div id="determine-the-new-threshold-after-filtering" class="section level2">
@@ -1317,6 +1351,7 @@ rheaprag
 </div>
 <div id="histograms-with-new-threshold" class="section level3">
 <h3>Histograms with new threshold:</h3>
+<p>Histograms were plotted with the new threshold.</p>
 <pre><code>newlmiss &lt;- read.table(&quot;hapmap3_3.lmiss&quot;, header = T)
 hist(newlmiss$F_MISS)</code></pre>
 <p><img src="figure/01-MissingnessFiltering.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -1342,6 +1377,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/ac2f74d33f148077d497839e3c237fc847c0db88/docs/figure/01-MissingnessFiltering.Rmd/unnamed-chunk-6-1.png" target="_blank">ac2f74d</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/13f2bb024c5e17f23298733558e58bdb1085c7fc/docs/figure/01-MissingnessFiltering.Rmd/unnamed-chunk-6-1.png" target="_blank">13f2bb0</a>
@@ -1395,6 +1441,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/ac2f74d33f148077d497839e3c237fc847c0db88/docs/figure/01-MissingnessFiltering.Rmd/unnamed-chunk-7-1.png" target="_blank">ac2f74d</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/7ea97ee01a5da87cdfb61c3c41e6f1411d161eb5/docs/figure/01-MissingnessFiltering.Rmd/unnamed-chunk-7-1.png" target="_blank">7ea97ee</a>
 </td>
 <td>
@@ -1430,10 +1487,51 @@ rheaprag
 <li><p><strong>GENO</strong>: Separation of genotype counts (AT hom/het/A2 hom)</p></li>
 <li><p><strong>O(HET)</strong>: Observed heterozygote frequency</p></li>
 </ul>
-<p>Plotting the distribution:</p>
+</div>
+<div id="plotting-the-distribution" class="section level3">
+<h3>Plotting the distribution:</h3>
+<p>The initial Hardy-Weinberg statistics was plotted to see the distribution.</p>
 <pre><code>hwe &lt;- read.table(&quot;hapmap3_01_4.hwe&quot;, header = T)
 hist(hwe$P)</code></pre>
 <p><img src="figure/01-MissingnessFiltering.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/ac2f74d33f148077d497839e3c237fc847c0db88/docs/figure/01-MissingnessFiltering.Rmd/unnamed-chunk-9-1.png" target="_blank">ac2f74d</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>These histograms plot the Hardy-Weinberg equilibrium p-values for all the SNPs in the dataset. The null hypothesis is that the SNPs will be in HWE. Therefore, SNPs with low p-values should have a rejected null hypothesis and assume that they are not in HWE since it is more likely to be due to a genotyping error. However, the histogram shows that many of the SNPs have low p-values. This means that we have to select a low cutoff that will not remove all of the SNPs from the dataset. The cutoff selected was <code>0.000001</code>.</p>
 </div>
 </div>
 <div id="filter-the-hardy-weinburg-equilibrium-threshold-and-then-recalculate-statistics" class="section level2">
@@ -1460,6 +1558,43 @@ hist(hwe$P)</code></pre>
 <pre><code>newhwe &lt;- read.table(&quot;hapmap3_01_6.hwe&quot;, header = T)
 hist(newhwe$P)</code></pre>
 <p><img src="figure/01-MissingnessFiltering.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/ac2f74d33f148077d497839e3c237fc847c0db88/docs/figure/01-MissingnessFiltering.Rmd/unnamed-chunk-12-1.png" target="_blank">ac2f74d</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-17
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
