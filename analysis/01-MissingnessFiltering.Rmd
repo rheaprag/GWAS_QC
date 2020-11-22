@@ -64,6 +64,7 @@ The important files created are .lmiss and .imiss. These are text files that hav
 * **F_MISS**: Proportion of the sample set missing for the SNP
   
 ### Histograms of unedited data with initial threshold:
+A histogram was plotted of the missingness data to see how it is distributed. This will help in determining the threshold. 
 ```{}
 lmiss <- read.table("hapmap3.lmiss", header = T)
 hist(lmiss$F_MISS)
@@ -83,6 +84,7 @@ hist(imiss$F_MISS)
 imiss <- read.table("hapmap3.imiss", header = T)
 hist(imiss$F_MISS)
 ```
+By looking at the histograms, most of the SNPs fall within the 0.01 missingness threshold. Therefore, this is the threshold that will be used in the following step. 
 
 ## 2. Create new bfiles based on the threshold
 ```{plink}
@@ -99,7 +101,7 @@ hist(imiss$F_MISS)
 * hapmap3_01_2.hh
 
 ### Details
-A new threshold is generated with the `--geno` and `--maf` plink flags. `--geno 0.01` filters out SNPs with missing call rates exceeding value of 0.01. `maf 0.05` filters out SNPs with a minor allele frequency below 0.05. New bflies (bed/bim/fam) with a new threshold are created with the `--make-bed`. 
+A new threshold is generated with the `--geno` and `--maf` plink flags. `--geno 0.01` filters out SNPs with missing call rates <99%. `maf 0.05` filters out SNPs with a minor allele frequency below 0.05. New bflies (bed/bim/fam) with a new threshold are created with the `--make-bed`. 
 
 ## 3. Determine the new threshold after filtering
 ```{plink}
@@ -118,6 +120,7 @@ A new threshold is generated with the `--geno` and `--maf` plink flags. `--geno 
 Similarly to step 1, the .imiss and .lmiss files are created with a new threshold.
 
 ### Histograms with new threshold:
+Histograms were plotted with the new threshold.
 ```{}
 newlmiss <- read.table("hapmap3_3.lmiss", header = T)
 hist(newlmiss$F_MISS)
@@ -167,8 +170,8 @@ The .hwe file is a text file with the following columns:
 
 * **O(HET)**: Observed heterozygote frequency
 
-Plotting the distribution:
-
+### Plotting the distribution:
+The initial Hardy-Weinberg statistics was plotted to see the distribution.
 ```{}
 hwe <- read.table("hapmap3_01_4.hwe", header = T)
 hist(hwe$P)
@@ -178,6 +181,8 @@ hist(hwe$P)
 hwe <- read.table("hapmap3_01_4.hwe", header = T)
 hist(hwe$P)
 ```
+
+These histograms plot the Hardy-Weinberg equilibrium p-values for all the SNPs in the dataset. The  null hypothesis is that the SNPs will be in HWE. Therefore, SNPs with low p-values should have a rejected null hypothesis and assume that they are not in HWE since it is more likely to be due to a genotyping error. However, the histogram shows that many of the SNPs have low p-values. This means that we have to select a low cutoff that will not remove all of the SNPs from the dataset. The cutoff selected was `0.000001`.
 
 ## 5. Filter the Hardy-Weinburg Equilibrium threshold and then recalculate statistics
 
