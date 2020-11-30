@@ -43,13 +43,13 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```{}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Utah.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ```{r, echo = FALSE}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Utah.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ## Chinese Colorado
@@ -64,13 +64,13 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```{}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_ColoradoChinese.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ```{r, echo = FALSE}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_ColoradoChinese.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ## Gujarati
@@ -85,13 +85,13 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```{}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Gujarati.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ```{r, echo = FALSE}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Gujarati.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ## Mexican
@@ -106,13 +106,13 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```{}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Mexican.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ```{r, echo = FALSE}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Mexican.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ## Toscans
@@ -127,11 +127,11 @@ ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
 ```{}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Toscans.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
 
 ```{r, echo = FALSE}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_Toscans.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
 ```
