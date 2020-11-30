@@ -63,13 +63,13 @@ In order to check the IBD:
 ```{}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_African.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)
 ```
 
 ```{r, echo = FALSE}
 library("ggplot2")
 ibd <- read.table("hapmap3_02_2_African.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)
 ```
 
 The rest of the IBD plots for the population subsets can be seen [here](IBD_plots.html).
@@ -85,36 +85,4 @@ The rest of the IBD plots for the population subsets can be seen [here](IBD_plot
 * hapmap3_02_3.hh
   
 * hapmap3_02_3.log
-
-## 4. LD prune SNPs from bfiles
-```{}
-./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --extract hapmap3.prune.in --make-bed --out hapmap3_02_4
-```
-### Files created in Step 4:
-
-* hapmap3_02_4.bed
-  
-* hapmap3_02_4.bim
-  
-* hapmap3_02_4.fam
-  
-* hapmap3_02_4.hh
-  
-* hapmap3_02_4.log
-
-## 5. Remove dumplicate or related samples & regenerate heterozygosity estimates from the filtered samples
-```{}
-./plink --bfile hapmap3_02_4 -het --out hapmap3_02_5
-```
-### Files created in Step 5:
-
-* hapmap3_02_5.het
-  
-* hapmap3_02_5.hh
-  
-* hapmap3_02_5.log
-
-
-
-
 
