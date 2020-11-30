@@ -413,7 +413,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-29
+<strong>Last updated:</strong> 2020-11-30
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreed2cf31b3b0caeaece49917428ef15b8c6ef0a4b9targetblankd2cf31ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/d2cf31b3b0caeaece49917428ef15b8c6ef0a4b9" target="_blank">d2cf31b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreebfc2cdd9625312e68dc4f882a8c9b5446c76b51etargetblankbfc2cdda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/bfc2cdd9625312e68dc4f882a8c9b5446c76b51e" target="_blank">bfc2cdd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreed2cf31b3b0caeaece49917428ef15b8c6ef0a4b9targetblankd2cf31ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreebfc2cdd9625312e68dc4f882a8c9b5446c76b51etargetblankbfc2cdda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/d2cf31b3b0caeaece49917428ef15b8c6ef0a4b9" target="_blank">d2cf31b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/bfc2cdd9625312e68dc4f882a8c9b5446c76b51e" target="_blank">bfc2cdd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -604,6 +604,9 @@ Untracked files:
     Untracked:  hapmap_Utah_populations.txt
     Untracked:  relationships_w_pops_121708.txt
 
+Unstaged changes:
+    Modified:   analysis/Separate_populations.Rmd
+
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -641,6 +644,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/bfc2cdd9625312e68dc4f882a8c9b5446c76b51e/analysis/IBD_plots.Rmd" target="_blank">bfc2cdd</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-30
+</td>
+<td>
+Fix x-axis on IBD plots
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/1698e46f3986bc3e6250cd23c903aea1b3eec338/docs/IBD_plots.html" target="_blank">1698e46</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -777,7 +814,7 @@ Add populations to files
 <pre><code>./plink --bfile hapmap_EastAsia --extract hapmap3_02_1_EastAsia.prune.in --genome --out hapmap3_02_2_EastAsia</code></pre>
 <pre><code>library(&quot;ggplot2&quot;)
 ibd &lt;- read.table(&quot;hapmap3_02_2_EastAsia.genome&quot;, header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)</code></pre>
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+xlim(0.00, 1.00)+ylim(0.00, 1.00)</code></pre>
 <p><img src="figure/IBD_plots.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
@@ -801,6 +838,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/1698e46f3986bc3e6250cd23c903aea1b3eec338/docs/figure/IBD_plots.Rmd/unnamed-chunk-1-1.png" target="_blank">1698e46</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-29
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/e232a3a6963151806d9eceffa898172a60a720a8/docs/figure/IBD_plots.Rmd/unnamed-chunk-1-1.png" target="_blank">e232a3a</a>
@@ -834,7 +882,7 @@ rheaprag
 <pre><code>./plink --bfile hapmap_Utah --extract hapmap3_02_1_Utah.prune.in --genome --out hapmap3_02_2_Utah</code></pre>
 <pre><code>library(&quot;ggplot2&quot;)
 ibd &lt;- read.table(&quot;hapmap3_02_2_Utah.genome&quot;, header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)</code></pre>
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+xlim(0.00, 1.00)+ylim(0.00, 1.00)</code></pre>
 <p><img src="figure/IBD_plots.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
@@ -891,7 +939,7 @@ rheaprag
 <pre><code>./plink --bfile hapmap_ColoradoChinese --extract hapmap3_02_1_ColoradoChinese.prune.in --genome --out hapmap3_02_2_ColoradoChinese</code></pre>
 <pre><code>library(&quot;ggplot2&quot;)
 ibd &lt;- read.table(&quot;hapmap3_02_2_ColoradoChinese.genome&quot;, header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)</code></pre>
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+xlim(0.00, 1.00)+ylim(0.00, 1.00)</code></pre>
 <p><img src="figure/IBD_plots.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
@@ -948,7 +996,7 @@ rheaprag
 <pre><code>./plink --bfile hapmap_Gujarati --extract hapmap3_02_1_Gujarati.prune.in --genome --out hapmap3_02_2_Gujarati</code></pre>
 <pre><code>library(&quot;ggplot2&quot;)
 ibd &lt;- read.table(&quot;hapmap3_02_2_Gujarati.genome&quot;, header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)</code></pre>
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+xlim(0.00, 1.00)+ylim(0.00, 1.00)</code></pre>
 <p><img src="figure/IBD_plots.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
@@ -1005,7 +1053,7 @@ rheaprag
 <pre><code>./plink --bfile hapmap_Mexican --extract hapmap3_02_1_Mexican.prune.in --genome --out hapmap3_02_2_Mexican</code></pre>
 <pre><code>library(&quot;ggplot2&quot;)
 ibd &lt;- read.table(&quot;hapmap3_02_2_Mexican.genome&quot;, header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)</code></pre>
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+xlim(0.00, 1.00)+ylim(0.00, 1.00)</code></pre>
 <p><img src="figure/IBD_plots.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
@@ -1062,7 +1110,7 @@ rheaprag
 <pre><code>./plink --bfile hapmap_Toscans --extract hapmap3_02_1_Toscans.prune.in --genome --out hapmap3_02_2_Toscans</code></pre>
 <pre><code>library(&quot;ggplot2&quot;)
 ibd &lt;- read.table(&quot;hapmap3_02_2_Toscans.genome&quot;, header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)</code></pre>
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+xlim(0.00, 1.00)+ylim(0.00, 1.00)</code></pre>
 <p><img src="figure/IBD_plots.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
@@ -1086,6 +1134,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/1698e46f3986bc3e6250cd23c903aea1b3eec338/docs/figure/IBD_plots.Rmd/unnamed-chunk-6-1.png" target="_blank">1698e46</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-11-29
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/e232a3a6963151806d9eceffa898172a60a720a8/docs/figure/IBD_plots.Rmd/unnamed-chunk-6-1.png" target="_blank">e232a3a</a>
