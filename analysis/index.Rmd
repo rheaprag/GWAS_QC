@@ -22,4 +22,6 @@ These are my analysis files:
 
 * [Relatedness Filtering](02-RelatednessFiltering.html)
 
+* [PCA](PCA.html)
+
 Thank you.
