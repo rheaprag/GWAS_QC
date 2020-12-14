@@ -27,7 +27,7 @@ eval <- scan("hapmap3_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Total Population")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Total Population")+xlim(0, 10)+ylim(0, 0.6)
 ```
 
 Similar steps are going to be taken for the various population subsets:
@@ -50,7 +50,7 @@ eval <- scan("hapmap3_African_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")+xlim(0, 10)+ylim(0, 0.6)
 ```
 
 ## East Asia
@@ -70,7 +70,7 @@ eval <- scan("hapmap3_EastAsia_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - East Asia")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - East Asia")+xlim(0, 10)+ylim(0, 0.6)
 ```
 
 ## Utah
@@ -90,7 +90,7 @@ eval <- scan("hapmap3_Utah_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Utah")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Utah")+xlim(0, 10)+ylim(0, 0.6)
 ```
 
 ## Colorado Chinese
@@ -110,7 +110,7 @@ eval <- scan("hapmap3_ColoradoChinese_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Colorado Chinese")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Colorado Chinese")+xlim(0, 10)+ylim(0, 0.6)
 ```
 
 ## Gujarati
@@ -130,7 +130,7 @@ eval <- scan("hapmap3_Gujarati_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Gujarati")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Gujarati")+xlim(0, 10)+ylim(0, 0.6)
 ```
 
 ## Mexican
@@ -150,7 +150,7 @@ eval <- scan("hapmap3_Mexican_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Mexican")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Mexican")+xlim(0, 10)+ylim(0, 0.6)
 ```
 
 ## Toscans
@@ -170,5 +170,5 @@ eval <- scan("hapmap3_Toscans_pca.eigenval")[1:10]
 skree <- round(eval/sum(eval),3)
 skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
-ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Toscans")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Toscans")+xlim(0, 10)+ylim(0, 0.6)
 ```
