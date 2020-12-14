@@ -1,0 +1,34 @@
+---
+title: "PCA"
+author: "rheaprag"
+date: "2020-12-13"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## All Populations
+Since the data was pruned in the previous step, new bfiles need to be created for the data:
+
+```{}
+./plink --bfile hapmap3_01_5 --extract hapmap3_allpop.prune.in --make-bed --out hapmap3_allpop_pruned
+```
+
+These new bfiles can be used to run the PCA with the population (not separated out!)
+```{}
+./plink --bfile hapmap3_allpop_pruned --pca 10 --out hapmap3_pca
+```
+
+To plot the data:
+```{r, echo=FALSE}
+library(ggplot2)
+pcs <- read.table("hapmap3_pca.eigenvec",header=T)
+eval <- scan("hapmap3_pca.eigenval")[1:10]
+skree <- round(eval/sum(eval),3)
+skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
+colnames(skree) <- c("percent_var","PC")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - Total Population")
+```
+
+Similar steps are going to be taken for the various population subsets:
+
