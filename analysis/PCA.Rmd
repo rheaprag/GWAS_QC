@@ -32,3 +32,23 @@ ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scal
 
 Similar steps are going to be taken for the various population subsets:
 
+## African
+
+```{}
+./plink --bfile hapmap_African --extract hapmap3_02_1_African.prune.in --make-bed --out hapmap3_African_pruned
+```
+
+```{}
+./plink --bfile hapmap3_African_pruned --pca 10 --out hapmap3_African_pca
+```
+
+To plot the data:
+```{r, echo=FALSE}
+library(ggplot2)
+pcs <- read.table("hapmap3_African_pca.eigenvec",header=T)
+eval <- scan("hapmap3_African_pca.eigenval")[1:10]
+skree <- round(eval/sum(eval),3)
+skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
+colnames(skree) <- c("percent_var","PC")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
+```
