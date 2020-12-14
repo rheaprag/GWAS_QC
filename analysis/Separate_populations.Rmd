@@ -21,13 +21,13 @@ The IBD plots would then look like this:
 ```{}
 library("ggplot2")
 ibd <- read.table("hapmap3_allpop.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+ylim(0.00, 1.00)
 ```
 
 ```{r, echo = FALSE}
 library("ggplot2")
 ibd <- read.table("hapmap3_allpop.genome", header = T)
-ggplot(data=ibd,aes(x=Z0,y=Z1))+geom_point(alpha=1/4)+theme_bw()
+ggplot(data=ibd,aes(x=Z0,y=Z1,color=RT))+geom_point(alpha=1/4)+theme_bw()+xlim(0.00, 1.00)+ylim(0.00, 1.00)
 ```
 
 Hapmap3 data is a has various populations. Therefore, in order there to be a proper analysis, the populations need to be separated as seen in the following steps:
