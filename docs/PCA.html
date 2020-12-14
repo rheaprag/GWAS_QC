@@ -504,16 +504,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreeb8acd269a40ea841f1d71faf29ac32be3c9be874targetblankb8acd26a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/b8acd269a40ea841f1d71faf29ac32be3c9be874" target="_blank">b8acd26</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreef8fbfe45a40eda90f404d836844394e36b5b3dbctargetblankf8fbfe4a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rheaprag/GWAS_QC/tree/f8fbfe45a40eda90f404d836844394e36b5b3dbc" target="_blank">f8fbfe4</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreeb8acd269a40ea841f1d71faf29ac32be3c9be874targetblankb8acd26a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrheapragGWASQCtreef8fbfe45a40eda90f404d836844394e36b5b3dbctargetblankf8fbfe4a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/b8acd269a40ea841f1d71faf29ac32be3c9be874" target="_blank">b8acd26</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rheaprag/GWAS_QC/tree/f8fbfe45a40eda90f404d836844394e36b5b3dbc" target="_blank">f8fbfe4</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -524,7 +524,6 @@ Ignored files:
     Ignored:    .RData
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/figure/
     Ignored:    data/.DS_Store
 
 Untracked files:
@@ -708,6 +707,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/f8fbfe45a40eda90f404d836844394e36b5b3dbc/analysis/PCA.Rmd" target="_blank">f8fbfe4</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+<td>
+Edit axes on graphs
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rheaprag/GWAS_QC/9355889c82d6d43aa8639010b79af996935c0ad3/docs/PCA.html" target="_blank">9355889</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/b8acd269a40ea841f1d71faf29ac32be3c9be874/analysis/PCA.Rmd" target="_blank">b8acd26</a>
 </td>
 <td>
@@ -835,7 +868,10 @@ Add PCA to file
 <pre><code>./plink --bfile hapmap3_01_5 --extract hapmap3_allpop.prune.in --make-bed --out hapmap3_allpop_pruned</code></pre>
 <p>These new bfiles can be used to run the PCA with the population (not separated out!)</p>
 <pre><code>./plink --bfile hapmap3_allpop_pruned --pca 10 --out hapmap3_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
 Past versions of unnamed-chunk-1-1.png
@@ -879,7 +915,10 @@ rheaprag
 <h2>African</h2>
 <pre><code>./plink --bfile hapmap_African --extract hapmap3_02_1_African.prune.in --make-bed --out hapmap3_African_pruned</code></pre>
 <pre><code>./plink --bfile hapmap3_African_pruned --pca 10 --out hapmap3_African_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
 Past versions of unnamed-chunk-2-1.png
@@ -922,7 +961,10 @@ rheaprag
 <h2>East Asia</h2>
 <pre><code>./plink --bfile hapmap_EastAsia --extract hapmap3_02_1_EastAsia.prune.in --make-bed --out hapmap3_EastAsia_pruned</code></pre>
 <pre><code>./plink --bfile hapmap3_EastAsia_pruned --pca 10 --out hapmap3_EastAsia_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
 Past versions of unnamed-chunk-3-1.png
@@ -947,6 +989,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/9355889c82d6d43aa8639010b79af996935c0ad3/docs/figure/PCA.Rmd/unnamed-chunk-3-1.png" target="_blank">9355889</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/2c69b0d49af65be381a2bfd366a3cb83d964c74b/docs/figure/PCA.Rmd/unnamed-chunk-3-1.png" target="_blank">2c69b0d</a>
 </td>
 <td>
@@ -965,7 +1018,10 @@ rheaprag
 <h2>Utah</h2>
 <pre><code>./plink --bfile hapmap_Utah --extract hapmap3_02_1_Utah.prune.in --make-bed --out hapmap3_Utah_pruned</code></pre>
 <pre><code>./plink --bfile hapmap3_Utah_pruned --pca 10 --out hapmap3_Utah_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
 Past versions of unnamed-chunk-4-1.png
@@ -990,6 +1046,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/9355889c82d6d43aa8639010b79af996935c0ad3/docs/figure/PCA.Rmd/unnamed-chunk-4-1.png" target="_blank">9355889</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/2c69b0d49af65be381a2bfd366a3cb83d964c74b/docs/figure/PCA.Rmd/unnamed-chunk-4-1.png" target="_blank">2c69b0d</a>
 </td>
 <td>
@@ -1008,7 +1075,10 @@ rheaprag
 <h2>Colorado Chinese</h2>
 <pre><code>./plink --bfile hapmap_ColoradoChinese --extract hapmap3_02_1_ColoradoChinese.prune.in --make-bed --out hapmap3_ColoradoChinese_pruned</code></pre>
 <pre><code>./plink --bfile hapmap3_ColoradoChinese_pruned --pca 10 --out hapmap3_ColoradoChinese_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
 Past versions of unnamed-chunk-5-1.png
@@ -1033,6 +1103,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/9355889c82d6d43aa8639010b79af996935c0ad3/docs/figure/PCA.Rmd/unnamed-chunk-5-1.png" target="_blank">9355889</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/2c69b0d49af65be381a2bfd366a3cb83d964c74b/docs/figure/PCA.Rmd/unnamed-chunk-5-1.png" target="_blank">2c69b0d</a>
 </td>
 <td>
@@ -1051,7 +1132,10 @@ rheaprag
 <h2>Gujarati</h2>
 <pre><code>./plink --bfile hapmap_Gujarati --extract hapmap3_02_1_Gujarati.prune.in --make-bed --out hapmap3_Gujarati_pruned</code></pre>
 <pre><code>./plink --bfile hapmap3_Gujarati_pruned --pca 10 --out hapmap3_Gujarati_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
 Past versions of unnamed-chunk-6-1.png
@@ -1076,6 +1160,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/9355889c82d6d43aa8639010b79af996935c0ad3/docs/figure/PCA.Rmd/unnamed-chunk-6-1.png" target="_blank">9355889</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/2c69b0d49af65be381a2bfd366a3cb83d964c74b/docs/figure/PCA.Rmd/unnamed-chunk-6-1.png" target="_blank">2c69b0d</a>
 </td>
 <td>
@@ -1094,7 +1189,10 @@ rheaprag
 <h2>Mexican</h2>
 <pre><code>./plink --bfile hapmap_Mexican --extract hapmap3_02_1_Mexican.prune.in --make-bed --out hapmap3_Mexican_pruned</code></pre>
 <pre><code>./plink --bfile hapmap3_Mexican_pruned --pca 10 --out hapmap3_Mexican_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
 Past versions of unnamed-chunk-7-1.png
@@ -1119,6 +1217,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/9355889c82d6d43aa8639010b79af996935c0ad3/docs/figure/PCA.Rmd/unnamed-chunk-7-1.png" target="_blank">9355889</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/rheaprag/GWAS_QC/blob/2c69b0d49af65be381a2bfd366a3cb83d964c74b/docs/figure/PCA.Rmd/unnamed-chunk-7-1.png" target="_blank">2c69b0d</a>
 </td>
 <td>
@@ -1137,7 +1246,47 @@ rheaprag
 <h2>Toscans</h2>
 <pre><code>./plink --bfile hapmap_Toscans --extract hapmap3_02_1_Toscans.prune.in --make-bed --out hapmap3_Toscans_pruned</code></pre>
 <pre><code>./plink --bfile hapmap3_Toscans_pruned --pca 10 --out hapmap3_Toscans_pca</code></pre>
-<p>To plot the data: <img src="figure/PCA.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>To plot the data:</p>
+<pre><code>Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+replace the existing scale.</code></pre>
+<p><img src="figure/PCA.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
+Past versions of unnamed-chunk-8-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/rheaprag/GWAS_QC/blob/9355889c82d6d43aa8639010b79af996935c0ad3/docs/figure/PCA.Rmd/unnamed-chunk-8-1.png" target="_blank">9355889</a>
+</td>
+<td>
+rheaprag
+</td>
+<td>
+2020-12-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
