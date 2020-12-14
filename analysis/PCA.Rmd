@@ -52,3 +52,103 @@ skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
 colnames(skree) <- c("percent_var","PC")
 ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
 ```
+
+## East Asia
+```{}
+./plink --bfile hapmap_EastAsia --extract hapmap3_02_1_EastAsia.prune.in --make-bed --out hapmap3_EastAsia_pruned
+```
+
+```{}
+./plink --bfile hapmap3_EastAsia_pruned --pca 10 --out hapmap3_EastAsia_pca
+```
+
+To plot the data:
+```{r, echo=FALSE}
+library(ggplot2)
+pcs <- read.table("hapmap3_EastAsia_pca.eigenvec",header=T)
+eval <- scan("hapmap3_EastAsia_pca.eigenval")[1:10]
+skree <- round(eval/sum(eval),3)
+skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
+colnames(skree) <- c("percent_var","PC")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
+```
+
+## Utah
+```{}
+./plink --bfile hapmap_Utah --extract hapmap3_02_1_Utah.prune.in --make-bed --out hapmap3_Utah_pruned
+```
+
+```{}
+./plink --bfile hapmap3_Utah_pruned --pca 10 --out hapmap3_Utah_pca
+```
+
+To plot the data:
+```{r, echo=FALSE}
+library(ggplot2)
+pcs <- read.table("hapmap3_Utah_pca.eigenvec",header=T)
+eval <- scan("hapmap3_Utah_pca.eigenval")[1:10]
+skree <- round(eval/sum(eval),3)
+skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
+colnames(skree) <- c("percent_var","PC")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
+```
+
+## Colorado Chinese
+```{}
+./plink --bfile hapmap_ColoradoChinese --extract hapmap3_02_1_ColoradoChinese.prune.in --make-bed --out hapmap3_ColoradoChinese_pruned
+```
+
+```{}
+./plink --bfile hapmap3_ColoradoChinese_pruned --pca 10 --out hapmap3_ColoradoChinese_pca
+```
+
+To plot the data:
+```{r, echo=FALSE}
+library(ggplot2)
+pcs <- read.table("hapmap3_ColoradoChinese_pca.eigenvec",header=T)
+eval <- scan("hapmap3_ColoradoChinese_pca.eigenval")[1:10]
+skree <- round(eval/sum(eval),3)
+skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
+colnames(skree) <- c("percent_var","PC")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
+```
+
+## Gujarati
+```{}
+./plink --bfile hapmap_Gujarati --extract hapmap3_02_1_Gujarati.prune.in --make-bed --out hapmap3_Gujarati_pruned
+```
+
+```{}
+./plink --bfile hapmap3_Gujarati_pruned --pca 10 --out hapmap3_Gujarati_pca
+```
+
+To plot the data:
+```{r, echo=FALSE}
+library(ggplot2)
+pcs <- read.table("hapmap3_Gujarati_pca.eigenvec",header=T)
+eval <- scan("hapmap3_Gujarati_pca.eigenval")[1:10]
+skree <- round(eval/sum(eval),3)
+skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
+colnames(skree) <- c("percent_var","PC")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
+```
+
+## Mexican
+```{}
+./plink --bfile hapmap_Mexican --extract hapmap3_02_1_Mexican.prune.in --make-bed --out hapmap3_Mexican_pruned
+```
+
+```{}
+./plink --bfile hapmap3_Mexican_pruned --pca 10 --out hapmap3_Mexican_pca
+```
+
+To plot the data:
+```{r, echo=FALSE}
+library(ggplot2)
+pcs <- read.table("hapmap3_Mexican_pca.eigenvec",header=T)
+eval <- scan("hapmap3_Mexican_pca.eigenval")[1:10]
+skree <- round(eval/sum(eval),3)
+skree <- cbind.data.frame(skree,c(1,2,3,4,5,6,7,8,9,10))
+colnames(skree) <- c("percent_var","PC")
+ggplot(data=skree, aes(x=PC, y=percent_var)) + geom_point() + geom_line() + scale_x_continuous(breaks = 1:10) + ggtitle("Proportion of variance explained - African")
+```
