@@ -76,13 +76,17 @@ The rest of the IBD plots for the population subsets can be seen [here](IBD_plot
 
 ## 3. Check the heterozygosity in the samples
 ```{}
-./plink --bed hapmap3_5.bed --bim hapmap3_5.bim --fam hapmap3_5.fam --het --out hapmap3_02_3
+./plink --bfile hapmap_African --het --out hapmap_African
 ```
 ### Files created in Step 3:
 
-* hapmap3_02_3.het
+* hapmap_African.het
   
-* hapmap3_02_3.hh
+* hapmap_African.hh
   
-* hapmap3_02_3.log
+* hapmap_African.log
+
+
+
+
 
