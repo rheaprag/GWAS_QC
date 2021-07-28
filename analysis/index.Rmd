@@ -10,7 +10,7 @@ editor_options:
 
 Welcome to my research website.
 
-Here I will be going through several steps to do quality control on a set of hapmap3 data using workflowr.
+Here I will be going through several steps to do quality control for a GWAS on a set of hapmap3 data using workflowr.
 
 These are my analysis files:
 
